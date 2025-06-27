@@ -1,9 +1,10 @@
 :root {
   --bg-color: rgb(25, 25, 25);
   --text-color: white;
-  --font-family: Arial;
+  --font-family: Arial, sans-serif;
 }
 
+/* Page background and text */
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -19,26 +20,36 @@ body {
   margin-top: 20px;
 }
 
+/* Move icons inside buttons */
 .move-icon {
   height: 50px;
+  background-color: transparent; /* Ensure transparency */
 }
 
+/* Buttons for rock/paper/scissors */
 .move-button {
-  background-color: rgba(255, 255, 255, 0.945);
+  background-color: rgba(255, 255, 255, 0.1); /* subtle white translucent */
   border: 3px solid white;
   width: 120px;
   height: 120px;
   border-radius: 80px;
   margin: 10px 5px;
   cursor: pointer;
+  transition: background-color 0.25s ease;
 }
 
+.move-button:hover {
+  background-color: rgba(255, 255, 255, 0.25); /* brighten on hover */
+}
+
+/* Score display styling */
 .score {
   font-size: 20px;
   margin-top: 60px;
   font-weight: bold;
 }
 
+/* Reset score button styling */
 .reset-score-button {
   background-color: white;
   border: none;
@@ -46,6 +57,9 @@ body {
   padding: 8px 15px;
   cursor: pointer;
   transition: background-color 0.2s, transform 0.1s;
+  color: var(--bg-color); /* Dark text on white button */
+  font-weight: bold;
+  border-radius: 5px;
 }
 
 .reset-score-button:hover {
@@ -60,6 +74,7 @@ body {
   box-shadow: 0 0 0 2px #0077ff;
 }
 
+/* Responsive adjustments */
 @media screen and (max-width: 960px) {
   .title {
     font-size: 24px;
