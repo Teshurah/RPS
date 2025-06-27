@@ -35,16 +35,16 @@ function playGame(playerMove) {
 // Determine the result of the game
 function determineResult(playerMove, computerMove) {
   if (playerMove === computerMove) {
-    return 'It\'s a tie! 😐';
+    return 'One more 😐';
   }
   if (
     (playerMove === 'rock' && computerMove === 'scissors') ||
     (playerMove === 'paper' && computerMove === 'rock') ||
     (playerMove === 'scissors' && computerMove === 'paper')
   ) {
-    return 'You win! 🎉';
+    return 'I let you win😒 ';
   }
-  return 'You lose! 😢';
+  return 'Haha I win!😊';
 }
 
 // Update score based on the result
