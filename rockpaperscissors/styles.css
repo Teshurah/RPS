@@ -1,15 +1,16 @@
 :root {
-  --bg-color: rgb(25, 25, 25);
+  --bg-color: #000000;   /* pure black */
   --text-color: white;
   --font-family: Arial, sans-serif;
   --button-bg: #2e2e2e;
   --button-border: white;
 }
 
+/* Then in body */
 body {
-  background-color: #000000; /* black */
-  color: white;
-  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
   text-align: center;
   padding: 20px;
   margin: 0;
