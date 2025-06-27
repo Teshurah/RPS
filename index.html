@@ -3,68 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Rock Paper Scissors</title>
-  <style>
-    :root {
-      --bg-color: rgb(25, 25, 25);
-      --text-color: white;
-      --font-family: Arial, sans-serif;
-    }
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: var(--font-family);
-      text-align: center;
-      margin: 0;
-      padding: 0;
-    }
-    .title {
-      font-size: 30px;
-      margin-top: 20px;
-      font-weight: bold;
-    }
-    .move-icon {
-      height: 50px;
-    }
-    .move-button {
-      background-color: rgba(255, 255, 255, 0.945);
-      border: 3px solid white;
-      width: 120px; height: 120px;
-      border-radius: 80px;
-      margin: 10px 5px;
-      cursor: pointer;
-    }
-    .score {
-      font-size: 20px;
-      margin-top: 60px;
-      font-weight: bold;
-    }
-    .reset-score-button {
-      background: white; border: none;
-      font-size: 15px; padding: 8px 15px;
-      margin-top: 40px;
-      cursor: pointer;
-      transition: background-color 0.2s, transform 0.1s;
-    }
-    .reset-score-button:hover { background-color: #f2f2f2; }
-    .reset-score-button:active { transform: translateY(1px); }
-    .reset-score-button:focus { box-shadow: 0 0 0 2px #0077ff; }
-
-    @media (max-width: 960px) {
-      .title { font-size: 24px; }
-      .move-button { width: 80px; height: 80px; border-radius: 40px; }
-      .reset-score-button { font-size: 13px; padding: 6px 12px; }
-    }
-    @media (max-width: 760px) {
-      .score { margin-top: 80px; }
-      .move-button { width: 60px; height: 60px; border-radius: 30px; }
-      .reset-score-button { font-size: 12px; padding: 4px 8px; }
-    }
-    @media (max-width: 480px) {
-      .score { margin-top: 120px; }
-      .move-button { width: 40px; height: 40px; border-radius: 20px; }
-      .reset-score-button { font-size: 10px; padding: 2px 4px; }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="logo.png" type="image/png">
+  <script src="game.js" defer></script>
 </head>
 <body>
   <p class="title">Rock Paper Scissors</p>
@@ -81,47 +22,5 @@
   </div>
   <p class="score" id="score-text"></p>
   <button class="reset-score-button" onclick="resetScore()">Reset Score</button>
-
-  <script>
-    let score = JSON.parse(localStorage.getItem('score')) || { wins: 0, losses: 0, ties: 0 };
-    updateScore();
-
-    function playGame(playerMove) {
-      const comp = ['rock','paper','scissors'][Math.floor(Math.random()*3)];
-      let result = '';
-      if(playerMove==='scissors'){
-        result = comp==='rock' ? 'Haha You lose 😊'
-               : comp==='paper'? 'I let you win that one 🙄'
-               : 'One more 😐';
-      } else if(playerMove==='paper'){
-        result = comp==='rock'? 'Oh man. You win 🙄'
-               : comp==='paper'? 'Dont copy me 😐'
-               : 'Haha sucker! 😊';
-      } else {
-        result = comp==='rock'? 'One more 😐'
-               : comp==='paper'? 'You lose! 😊'
-               : 'You cheated 🙄';
-      }
-
-      if(result.includes('win')) score.wins++;
-      else if(result.includes('lose')||result.includes('sucker')) score.losses++;
-      else score.ties++;
-
-      localStorage.setItem('score', JSON.stringify(score));
-      alert(`You picked ${playerMove}.\nComputer picked ${comp}.\n\n${result}\n\nWins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
-      updateScore();
-    }
-
-    function updateScore() {
-      document.getElementById('score-text').textContent =
-        `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
-    }
-
-    function resetScore() {
-      score = { wins:0, losses:0, ties:0 };
-      localStorage.removeItem('score');
-      updateScore();
-    }
-  </script>
 </body>
 </html>
