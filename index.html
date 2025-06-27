@@ -12,16 +12,16 @@
   <p class="title">Rock Paper Scissors</p>
 
   <div class="game-container">
-    <button class="move-button">
-      <img src="rock.png" class="move-icon" alt="rock">
+    <button onclick="playGame('rock');" class="move-button">
+      <img src="rock.png" class="move-icon" alt="Rock">
     </button>
 
-    <button class="move-button">
-      <img src="paper.png" class="move-icon" alt="paper">
+    <button onclick="playGame('paper');" class="move-button">
+      <img src="paper.png" class="move-icon" alt="Paper">
     </button>
 
-    <button class="move-button">
-      <img src="scissors.png" class="move-icon" alt="scissors">
+    <button onclick="playGame('scissors');" class="move-button">
+      <img src="scissors.png" class="move-icon" alt="Scissors">
     </button>
   </div>
 
@@ -29,7 +29,7 @@
   <p class="js-moves"></p>
   <p class="js-score score"></p>
 
-  <button class="reset-score-button">Reset Score</button>
+  <button onclick="resetScore();" class="reset-score-button">Reset Score</button>
 
 </body>
 </html>
