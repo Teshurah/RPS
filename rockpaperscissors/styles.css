@@ -2,8 +2,8 @@
 body {
   font-family: 'Arial', sans-serif;
   text-align: center;
-  background-color: #1a1a4b; /* Changed background color to dark blue */
-  color: white; /* Text color set to white for contrast */
+  background-color: #f0f0f0; /* Changed background color to light gray */
+  color: black; /* Text color set to black for contrast */
   margin: 0;
   padding: 0;
 }
@@ -12,7 +12,7 @@ body {
 .title {
   font-size: 2.5em; /* Increased font size for the title */
   margin-top: 20px;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Added shadow for better visibility */
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7); /* Added shadow for better visibility */
 }
 
 /* Game Container Styles */
@@ -46,7 +46,7 @@ body {
 .result, .js-moves, .score {
   font-size: 1.5em; /* Increased font size for better readability */
   margin: 10px 0;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Added shadow for better visibility */
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7); /* Added shadow for better visibility */
 }
 
 /* Reset Button Styles */
