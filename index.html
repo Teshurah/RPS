@@ -3,86 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <title>Rock Paper Scissors</title>
-  <link rel="stylesheet" href="rockpaperscissors/styles.css">
-  <link rel="icon" href="rockpaperscissors/logo.png" type="image/png">
-  <script src="rockpaperscissors/game.js" defer></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #f4f4f4;
-    }
-
-    .title {
-      font-size: 2em;
-      margin-top: 20px;
-    }
-
-    .move-button {
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      margin: 10px;
-    }
-
-    .move-icon {
-      width: 80px;
-      height: 80px;
-    }
-
-    .result, .js-moves, .score {
-      font-size: 1.2em;
-      margin: 10px 0;
-    }
-
-    .reset-score-button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 1em;
-      background-color: #ff4444;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .game-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="logo.png" type="image/png">
+  <script src="game.js" defer></script>
 </head>
 <body>
-
   <p class="title">Rock Paper Scissors</p>
-
   <div class="game-container">
     <button onclick="playGame('rock');" class="move-button">
-      <img src="rockpaperscissors/rock.png" class="move-icon" alt="Rock">
+      <img src="rock.png" class="move-icon" alt="Rock">
     </button>
-
     <button onclick="playGame('paper');" class="move-button">
-      <img src="rockpaperscissors/paper.png" class="move-icon" alt="Paper">
+      <img src="paper.png" class="move-icon" alt="Paper">
     </button>
-
     <button onclick="playGame('scissors');" class="move-button">
-      <img src="rockpaperscissors/scissors.png" class="move-icon" alt="Scissors">
+      <img src="scissors.png" class="move-icon" alt="Scissors">
     </button>
   </div>
-
   <p class="js-result result"></p>
   <p class="js-moves"></p>
   <p class="js-score score"></p>
-
-  <button onclick="
-    score.wins = 0;
-    score.losses = 0;
-    score.ties = 0;
-    localStorage.removeItem('score');
-    updateScoreElement();
-  " class="reset-score-button">Reset Score</button>
-
+  <button onclick="resetScore();" class="reset-score-button">Reset Score</button>
 </body>
 </html>
