@@ -1,121 +1,31 @@
-:root {
-  --bg-color: rgb(25, 25, 25);
-  --text-color: white;
-  --font-family: Arial;
-}
-
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: var(--font-family);
-  text-align: center;
-  margin: 0;
-  padding: 0;
-}
-
-.title {
-  font-size: 30px;
-  font-weight: bold;
-  margin-top: 20px;
-}
-
 .move-icon {
-  height: 50px;
+  width: 80px;
+  height: 80px;
 }
-
-.move-button {
-  background-color: rgba(255, 255, 255, 0.945);
-  border: 3px solid white;
-  width: 120px;
-  height: 120px;
-  border-radius: 80px;
-  margin: 10px 5px;
-  cursor: pointer;
+.result, .js-moves, .score {
+  font-size: 1.2em;
+  margin: 10px 0;
 }
-
-.result {
-  font-size: 25px;
-  font-weight: bold;
-  margin-top: 50px;
-}
-
-.score {
-  margin-top: 60px;
-}
-
 .reset-score-button {
-  background-color: white;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #ff4444;
+  color: white;
   border: none;
-  font-size: 15px;
-  padding: 8px 15px;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.2s, transform 0.1s;
 }
-
 .reset-score-button:hover {
-  background-color: #f2f2f2;
+  background-color: #ff6666;
 }
-
 .reset-score-button:active {
   transform: translateY(1px);
 }
-
-.reset-score-button:focus {
-  box-shadow: 0 0 0 2px #0077ff;
+.game-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
 }
-
-/* Responsive Styles */
-@media screen and (max-width: 960px) {
-  .title {
-    font-size: 24px;
-  }
-
-  .move-button {
-    width: 80px;
-    height: 80px;
-    border-radius: 40px;
-  }
-
-  .reset-score-button {
-    font-size: 13px;
-    padding: 6px 12px;
-  }
-}
-
-@media screen and (max-width: 760px) {
-  .score {
-    margin-top: 80px;
-  }
-
-  .move-button {
-    width: 60px;
-    height: 60px;
-    border-radius: 30px;
-  }
-
-  .reset-score-button {
-    font-size: 12px;
-    padding: 4px 8px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .score {
-    margin-top: 120px;
-  }
-
-  .move-button {
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-  }
-
-  .reset-score-button {
-    font-size: 10px;
-    padding: 2px 4px;
-  }
-}
-
-  }
-
-  */
