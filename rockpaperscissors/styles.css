@@ -1,6 +1,6 @@
 :root {
-  --bg-color: #191919;
-  --text-color: white;
+  --bg-color: #000;
+  --text-color: #fff;
   --font-family: Arial, sans-serif;
 }
 
@@ -10,48 +10,51 @@ body {
   font-family: var(--font-family);
   text-align: center;
   margin: 0;
-  padding: 20px;
+  padding: 30px 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .title {
   font-size: 32px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .game-container {
   display: flex;
   justify-content: center;
-  gap: 20px;
   flex-wrap: wrap;
+  gap: 30px;
   margin-bottom: 30px;
 }
 
 .move-button {
   background-color: transparent;
-  border: none;
+  border: 3px solid #fff;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
   padding: 0;
-  width: 120px;
-  height: 120px;
-  border-radius: 60px;
-  overflow: hidden;
   cursor: pointer;
-  transition: transform 0.2s;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.2s ease, border-color 0.2s;
 }
 
 .move-button:hover {
-  transform: scale(1.1);
+  transform: scale(1.08);
+  border-color: #999;
 }
 
 .move-icon {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   object-fit: contain;
-  background-color: transparent;
   pointer-events: none;
+  background-color: transparent;
+  display: block;
 }
 
 .result {
@@ -78,5 +81,5 @@ body {
 }
 
 .reset-score-button:hover {
-  background-color: #f2f2f2;
+  background-color: #e6e6e6;
 }
