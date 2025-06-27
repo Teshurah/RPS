@@ -1,58 +1,104 @@
-   body {
-     font-family: Arial, sans-serif;
-     text-align: center;
-     background-color: black; /* Changed background color to black */
-     color: white; /* Changed text color to white for better contrast */
-     margin: 0;
-     padding: 0;
-   }
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  background-color: black; /* Background color set to black */
+  color: white; /* Text color set to white for contrast */
+  margin: 0;
+  padding: 0;
+}
 
-   .title {
-     font-size: 2em;
-     margin-top: 20px;
-   }
+/* Title Styles */
+.title {
+  font-size: 2.5em; /* Increased font size for the title */
+  margin-top: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Added shadow for better visibility */
+}
 
-   .move-button {
-     background-color: transparent;
-     border: none;
-     cursor: pointer;
-     margin: 10px;
-   }
+/* Game Container Styles */
+.game-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
 
-   .move-icon {
-     width: 80px;
-     height: 80px;
-   }
+/* Button Styles */
+.move-button {
+  background-color: transparent; /* Transparent background */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin: 10px;
+  transition: transform 0.2s; /* Smooth scaling effect */
+}
 
-   .result, .js-moves, .score {
-     font-size: 1.2em;
-     margin: 10px 0;
-   }
+.move-button:hover {
+  transform: scale(1.1); /* Scale up on hover */
+}
 
-   .reset-score-button {
-     margin-top: 20px;
-     padding: 10px 20px;
-     font-size: 1em;
-     background-color: #ff4444;
-     color: white;
-     border: none;
-     border-radius: 5px;
-     cursor: pointer;
-     transition: background-color 0.2s, transform 0.1s;
-   }
+/* Image Styles */
+.move-icon {
+  width: 100px; /* Increased icon size */
+  height: 100px; /* Increased icon size */
+}
 
-   .reset-score-button:hover {
-     background-color: #ff6666;
-   }
+/* Result and Score Styles */
+.result, .js-moves, .score {
+  font-size: 1.5em; /* Increased font size for better readability */
+  margin: 10px 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Added shadow for better visibility */
+}
 
-   .reset-score-button:active {
-     transform: translateY(1px);
-   }
+/* Reset Button Styles */
+.reset-score-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.2em; /* Increased font size */
+  background-color: #ff4444; /* Red background */
+  color: white; /* White text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, transform 0.1s; /* Smooth transition effects */
+}
 
-   .game-container {
-     display: flex;
-     justify-content: center;
-     flex-wrap: wrap;
-     margin-top: 20px;
-   }
-   
+.reset-score-button:hover {
+  background-color: #ff6666; /* Lighter red on hover */
+}
+
+.reset-score-button:active {
+  transform: translateY(1px); /* Slightly move down on click */
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 960px) {
+  .title {
+    font-size: 2em; /* Adjust title size for smaller screens */
+  }
+
+  .move-icon {
+    width: 80px; /* Adjust icon size for smaller screens */
+    height: 80px; /* Adjust icon size for smaller screens */
+  }
+
+  .reset-score-button {
+    font-size: 1em; /* Adjust button size for smaller screens */
+    padding: 8px 16px; /* Adjust padding for smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .title {
+    font-size: 1.5em; /* Further adjust title size for very small screens */
+  }
+
+  .move-icon {
+    width: 60px; /* Further adjust icon size for very small screens */
+    height: 60px; /* Further adjust icon size for very small screens */
+  }
+
+  .reset-score-button {
+    font-size: 0.9em; /* Further adjust button size for very small screens */
+    padding: 6px 12px; /* Further adjust padding for very small screens */
+  }
+}
