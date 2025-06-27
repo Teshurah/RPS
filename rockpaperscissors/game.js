@@ -61,8 +61,8 @@ function playGame(playerMove) {
 
 function pickComputerMove() {
   const randomNumber = Math.random();
-  if (randomNumber < 1/3) return 'rock';
-  if (randomNumber < 2/3) return 'paper';
+  if (randomNumber < 1 / 3) return 'rock';
+  if (randomNumber < 2 / 3) return 'paper';
   return 'scissors';
 }
 
