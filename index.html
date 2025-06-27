@@ -9,51 +9,56 @@
   <script src="rockpaperscissors/game.js" defer></script>
   <style>
     body {
-     background-color: #000000 !important;
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    }
+    html, body {
+  background-color: #000000 !important;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
 
-    .title {
-      font-size: 2em;
-      margin-top: 20px;
-    }
+.title {
+  font-size: 2em;
+  margin-top: 20px;
+}
 
-    .move-button {
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      margin: 10px;
-    }
+.move-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+}
 
-    .move-icon {
-      width: 80px;
-      height: 80px;
-    }
+.move-icon {
+  width: 80px;
+  height: 80px;
+}
 
-    .result, .js-moves, .score {
-      font-size: 1.2em;
-      margin: 10px 0;
-    }
+.result, .js-moves, .score {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
 
-    .reset-score-button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 1em;
-      background-color: #ff4444;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+.reset-score-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-    .game-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
+.game-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+;
   </style>
 </head>
 <body>
