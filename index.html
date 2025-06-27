@@ -2,25 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rock Paper Scissors</title>
-  <link rel="stylesheet" href="styles (1).css" />
-  <link rel="icon" href="logo.png" type="image/png" />
-  <script src="game (1).js" defer></script>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <p class="title">Rock Paper Scissors</p>
+
+  <h1 class="title">Rock Paper Scissors</h1>
+
   <div class="game-container">
     <button class="move-button" onclick="playGame('rock')">
-      <img src="rock.png" class="move-icon" alt="Rock" />
+      <img src="rockpaperscissors/rock.png" alt="Rock" class="move-icon" />
     </button>
     <button class="move-button" onclick="playGame('paper')">
-      <img src="paper.png" class="move-icon" alt="Paper" />
+      <img src="rockpaperscissors/paper.png" alt="Paper" class="move-icon" />
     </button>
     <button class="move-button" onclick="playGame('scissors')">
-      <img src="scissors.png" class="move-icon" alt="Scissors" />
+      <img src="rockpaperscissors/scissors.png" alt="Scissors" class="move-icon" />
     </button>
   </div>
-  <p class="score" id="score-text"></p>
+
+  <p class="js-moves"></p>
+  <p class="js-result result"></p>
+  <p class="js-score score"></p>
+
   <button class="reset-score-button" onclick="resetScore()">Reset Score</button>
+
+  <script src="game.js"></script>
 </body>
 </html>
