@@ -6,7 +6,7 @@ let score = JSON.parse(localStorage.getItem('score')) || {
 
 function updateScoreElement() {
   document.querySelector('.js-score').textContent =
-    `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+    `Wins: ${score.wins} | Losses: ${score.losses} | Ties: ${score.ties}`;
 }
 
 function updateMovesAndResult(playerMove, computerMove, result) {
@@ -27,7 +27,7 @@ function playGame(playerMove) {
     (playerMove === 'paper' && computerMove === 'rock') ||
     (playerMove === 'scissors' && computerMove === 'paper')
   ) {
-    result = 'You win! 🙌';
+    result = 'You win! 🎉';
     score.wins++;
   } else {
     result = 'You lose 😢';
@@ -41,8 +41,7 @@ function playGame(playerMove) {
 
 function pickComputerMove() {
   const moves = ['rock', 'paper', 'scissors'];
-  const randomIndex = Math.floor(Math.random() * 3);
-  return moves[randomIndex];
+  return moves[Math.floor(Math.random() * moves.length)];
 }
 
 function resetScore() {
