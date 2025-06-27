@@ -2,7 +2,7 @@
 body {
   font-family: 'Arial', sans-serif;
   text-align: center;
-  background-color: black; /* Background color set to black */
+  background-color: #1a1a4b; /* Changed background color to dark blue */
   color: white; /* Text color set to white for contrast */
   margin: 0;
   padding: 0;
