@@ -4,30 +4,30 @@
   <meta charset="UTF-8" />
   <title>Rock Paper Scissors</title>
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="logo.png" type="image/png" />
   <script src="game.js" defer></script>
 </head>
 <body>
 
-  <p class="title">Rock Paper Scissors</p>
+  <h1 class="title">Rock Paper Scissors</h1>
 
   <div class="game-container">
-    <button onclick="playGame('rock');" class="move-button">
-      <img src="rock.png" class="move-icon" alt="Rock" />
+    <button class="move-button" onclick="playGame('rock')">
+      <!-- Replace these emoji with your transparent PNG icons -->
+      <span class="move-icon" role="img" aria-label="rock">✊</span>
     </button>
-    <button onclick="playGame('paper');" class="move-button">
-      <img src="paper.png" class="move-icon" alt="Paper" />
+    <button class="move-button" onclick="playGame('paper')">
+      <span class="move-icon" role="img" aria-label="paper">✋</span>
     </button>
-    <button onclick="playGame('scissors');" class="move-button">
-      <img src="scissors.png" class="move-icon" alt="Scissors" />
+    <button class="move-button" onclick="playGame('scissors')">
+      <span class="move-icon" role="img" aria-label="scissors">✌️</span>
     </button>
   </div>
 
-  <p class="js-result result"></p>
   <p class="js-moves"></p>
+  <p class="js-result result"></p>
   <p class="js-score score"></p>
 
-  <button onclick="resetScore()" class="reset-score-button">Reset Score</button>
+  <button class="reset-score-button" onclick="resetScore()">Reset Score</button>
 
 </body>
 </html>
