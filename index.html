@@ -1,56 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Rock Paper Scissors</title>
-  <link rel="stylesheet" href="rockpaperscissors/styles.css">
-  <link rel="icon" href="rockpaperscissors/logo.png" type="image/png">
+  <link rel="stylesheet" href="rockpaperscissors/styles.css" />
+  <link rel="icon" href="rockpaperscissors/logo.png" type="image/png" />
   <script src="rockpaperscissors/game.js" defer></script>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #f4f4f4;
+    /* Add the styling from earlier here or keep in styles.css */
+    .js-result {
+      font-size: 3em;
+      font-weight: 700;
+      color: var(--text-color);
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      margin: 50px auto 20px;
+      max-width: 700px;
+      user-select: none;
     }
 
-    .title {
-      font-size: 2em;
-      margin-top: 20px;
+    .js-moves {
+      font-size: 1.5em;
+      margin-top: 15px;
+      color: var(--text-color);
+      opacity: 0.8;
     }
 
-    .move-button {
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      margin: 10px;
-    }
-
-    .move-icon {
-      width: 80px;
-      height: 80px;
-    }
-
-    .result, .js-moves, .score {
+    .js-score {
       font-size: 1.2em;
-      margin: 10px 0;
-    }
-
-    .reset-score-button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 1em;
-      background-color: #ff4444;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .game-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 20px;
+      margin-top: 40px;
+      color: var(--text-color);
+      font-weight: 600;
     }
   </style>
 </head>
@@ -60,15 +42,15 @@
 
   <div class="game-container">
     <button onclick="playGame('rock');" class="move-button">
-      <img src="rockpaperscissors/rock.png" class="move-icon" alt="Rock">
+      <img src="rockpaperscissors/rock.png" class="move-icon" alt="Rock" />
     </button>
 
     <button onclick="playGame('paper');" class="move-button">
-      <img src="rockpaperscissors/paper.png" class="move-icon" alt="Paper">
+      <img src="rockpaperscissors/paper.png" class="move-icon" alt="Paper" />
     </button>
 
     <button onclick="playGame('scissors');" class="move-button">
-      <img src="rockpaperscissors/scissors.png" class="move-icon" alt="Scissors">
+      <img src="rockpaperscissors/scissors.png" class="move-icon" alt="Scissors" />
     </button>
   </div>
 
@@ -76,13 +58,20 @@
   <p class="js-moves"></p>
   <p class="js-score score"></p>
 
-  <button onclick="
-    score.wins = 0;
-    score.losses = 0;
-    score.ties = 0;
-    localStorage.removeItem('score');
-    updateScoreElement();
-  " class="reset-score-button">Reset Score</button>
-
+  <button
+    onclick="
+      score.wins = 0;
+      score.losses = 0;
+      score.ties = 0;
+      localStorage.removeItem('score');
+      updateScoreElement();
+      document.querySelector('.js-result').textContent = '';
+      document.querySelector('.js-moves').textContent = '';
+    "
+    class="reset-score-button"
+  >
+    Reset Score
+  </button>
+  
 </body>
 </html>
