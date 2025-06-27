@@ -1,28 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Rock Paper Scissors</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="logo.png" type="image/png">
-  <script src="game.js" defer></script>
-</head>
-<body>
-  <p class="title">Rock Paper Scissors</p>
-  <div class="game-container">
-    <button onclick="playGame('rock');" class="move-button">
-      <img src="rock.png" class="move-icon" alt="Rock">
-    </button>
-    <button onclick="playGame('paper');" class="move-button">
-      <img src="paper.png" class="move-icon" alt="Paper">
-    </button>
-    <button onclick="playGame('scissors');" class="move-button">
-      <img src="scissors.png" class="move-icon" alt="Scissors">
-    </button>
-  </div>
-  <p class="js-result result"></p>
-  <p class="js-moves"></p>
-  <p class="js-score score"></p>
-  <button onclick="resetScore();" class="reset-score-button">Reset Score</button>
-</body>
-</html>
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+     <meta charset="UTF-8">
+     <title>Rock Paper Scissors</title>
+     <link rel="stylesheet" href="styles.css">
+     <link rel="icon" href="logo.png" type="image/png">
+     <script src="game.js" defer></script>
+   </head>
+   <body>
+
+     <p class="title">Rock Paper Scissors</p>
+
+     <div class="game-container">
+       <button onclick="playGame('rock');" class="move-button">
+         <img src="rock.png" class="move-icon" alt="Rock">
+       </button>
+
+       <button onclick="playGame('paper');" class="move-button">
+         <img src="paper.png" class="move-icon" alt="Paper">
+       </button>
+
+       <button onclick="playGame('scissors');" class="move-button">
+         <img src="scissors.png" class="move-icon" alt="Scissors">
+       </button>
+     </div>
+
+     <p class="js-result result"></p>
+     <p class="js-moves"></p>
+     <p class="js-score score"></p>
+
+     <button onclick="resetScore();" class="reset-score-button">Reset Score</button>
+
+   </body>
+   </html>
+   
