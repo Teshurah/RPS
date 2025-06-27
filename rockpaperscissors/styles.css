@@ -116,6 +116,34 @@ body {
   }
 }
 
+
   }
+.js-result {
+  font-size: 3em;          /* large text */
+  font-weight: 700;
+  color: var(--text-color);
+  background-color: rgba(255, 255, 255, 0.1); /* subtle light overlay */
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  margin: 50px auto 20px;
+  max-width: 700px;
+  user-select: none;
+}
+
+.js-moves {
+  font-size: 1.5em;
+  margin-top: 15px;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.js-score {
+  font-size: 1.2em;
+  margin-top: 40px;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
 
   */
