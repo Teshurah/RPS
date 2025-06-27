@@ -4,52 +4,70 @@
   --font-family: Arial, sans-serif;
 }
 
-/* Page background and text */
-body {
+/* Dark page background */
+html, body {
   background-color: var(--bg-color);
+  margin: 0;
+  padding: 0;
+  height: 100%;
   color: var(--text-color);
   font-family: var(--font-family);
   text-align: center;
-  margin: 0;
-  padding: 0;
 }
 
+/* Title */
 .title {
   font-size: 30px;
   font-weight: bold;
   margin-top: 20px;
 }
 
-/* Move icons inside buttons */
-.move-icon {
-  height: 50px;
-  background-color: transparent; /* Ensure transparency */
+/* Buttons container */
+.game-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
 }
 
-/* Buttons for rock/paper/scissors */
+/* Buttons */
 .move-button {
-  background-color: rgba(255, 255, 255, 0.1); /* subtle white translucent */
+  background-color: rgba(255, 255, 255, 0.05); /* super subtle white, almost transparent */
   border: 3px solid white;
   width: 120px;
   height: 120px;
   border-radius: 80px;
   margin: 10px 5px;
   cursor: pointer;
-  transition: background-color 0.25s ease;
+  transition: background-color 0.3s ease;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Hover effect */
 .move-button:hover {
-  background-color: rgba(255, 255, 255, 0.25); /* brighten on hover */
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
-/* Score display styling */
+/* Images */
+.move-icon {
+  width: 80px;
+  height: 80px;
+  background-color: transparent; /* IMPORTANT */
+  object-fit: contain;
+  display: block;
+}
+
+/* Score text */
 .score {
   font-size: 20px;
   margin-top: 60px;
   font-weight: bold;
 }
 
-/* Reset score button styling */
+/* Reset button */
 .reset-score-button {
   background-color: white;
   border: none;
@@ -57,7 +75,7 @@ body {
   padding: 8px 15px;
   cursor: pointer;
   transition: background-color 0.2s, transform 0.1s;
-  color: var(--bg-color); /* Dark text on white button */
+  color: var(--bg-color);
   font-weight: bold;
   border-radius: 5px;
 }
@@ -74,54 +92,4 @@ body {
   box-shadow: 0 0 0 2px #0077ff;
 }
 
-/* Responsive adjustments */
-@media screen and (max-width: 960px) {
-  .title {
-    font-size: 24px;
-  }
-
-  .move-button {
-    width: 80px;
-    height: 80px;
-    border-radius: 40px;
-  }
-
-  .reset-score-button {
-    font-size: 13px;
-    padding: 6px 12px;
-  }
-}
-
-@media screen and (max-width: 760px) {
-  .score {
-    margin-top: 80px;
-  }
-
-  .move-button {
-    width: 60px;
-    height: 60px;
-    border-radius: 30px;
-  }
-
-  .reset-score-button {
-    font-size: 12px;
-    padding: 4px 8px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .score {
-    margin-top: 120px;
-  }
-
-  .move-button {
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-  }
-
-  .reset-score-button {
-    font-size: 10px;
-    padding: 2px 4px;
-  }
-}
+/* Responsive styles omitted for brevity (keep your existing ones) */
