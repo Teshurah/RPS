@@ -4,73 +4,54 @@ let score = JSON.parse(localStorage.getItem('score')) || {
   ties: 0
 };
 
-/*
-if (!score) {
-  score = {
-    wins: 0,
-    losses: 0,
-    ties: 0
-  };
-}
-*/
-
 function playGame(playerMove) {
   const computerMove = pickComputerMove();
-
   let result = '';
+  let outcome = ''; // win, lose, tie
 
-  if (playerMove === 'scissors') {
+  if (playerMove === 'rock') {
     if (computerMove === 'rock') {
-      result = 'Haha You lose';
-    } else if (computerMove === 'paper') {
-      result = 'I let you win that one';
-    } else if (computerMove === 'scissors') {
       result = 'One more';
+      outcome = 'tie';
+    } else if (computerMove === 'paper') {
+      result = 'You lose!';
+      outcome = 'lose';
+    } else {
+      result = 'You cheated';
+      outcome = 'win';
     }
-
   } else if (playerMove === 'paper') {
     if (computerMove === 'rock') {
       result = 'Oh man. You win';
+      outcome = 'win';
     } else if (computerMove === 'paper') {
-      result = 'Dont copy me';
-    } else if (computerMove === 'scissors') {
+      result = 'Don’t copy me';
+      outcome = 'tie';
+    } else {
       result = 'Haha sucker!';
+      outcome = 'lose';
     }
-    
-  } else if (playerMove === 'rock') {
+  } else if (playerMove === 'scissors') {
     if (computerMove === 'rock') {
-      result = 'One more';
+      result = 'Haha You lose';
+      outcome = 'lose';
     } else if (computerMove === 'paper') {
-      result = 'You lose!';
-    } else if (computerMove === 'scissors') {
-      result = 'You cheated';
+      result = 'I let you win that one';
+      outcome = 'win';
+    } else {
+      result = 'One more';
+      outcome = 'tie';
     }
   }
 
-  if (result === 'I let you win that one') {
+  // Update score
+  if (outcome === 'win') {
     score.wins += 1;
-  } else if (result === 'Haha You lose') {
+  } else if (outcome === 'lose') {
     score.losses += 1;
-  } else if (result === 'One more') {
+  } else if (outcome === 'tie') {
     score.ties += 1;
   }
-  
-   if (result === 'Oh man. You win') {
-    score.wins += 1;
-  } else if (result === 'Haha sucker!') {
-    score.losses += 1;
-  } else if (result === 'Dont copy me') {
-    score.ties += 1;
-  }
-  
- if (result === 'You win.') {
-    score.wins += 1;
-  } else if (result === 'You lose!') {
-    score.losses += 1;
-  } else if (result === 'You cheated') {
-    score.ties += 1;
-  }
-
 
   localStorage.setItem('score', JSON.stringify(score));
 
@@ -81,15 +62,11 @@ Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
 function pickComputerMove() {
   const randomNumber = Math.random();
 
-  let computerMove = '';
-
-  if (randomNumber >= 0 && randomNumber < 1 / 3) {
-    computerMove = 'rock';
-  } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
-    computerMove = 'paper';
-  } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
-    computerMove = 'scissors';
+  if (randomNumber < 1 / 3) {
+    return 'rock';
+  } else if (randomNumber < 2 / 3) {
+    return 'paper';
+  } else {
+    return 'scissors';
   }
-
-  return computerMove;
 }
