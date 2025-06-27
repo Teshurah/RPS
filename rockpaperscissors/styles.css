@@ -1,7 +1,9 @@
 :root {
   --bg-color: rgb(25, 25, 25);
-  --text-color: black;
+  --text-color: white;
   --font-family: Arial;
+  --button-bg: #2e2e2e;
+  --button-border: white;
 }
 
 body {
@@ -30,43 +32,21 @@ body {
 }
 
 .move-button {
-  background-color: rgba(255, 255, 255, 0.945);
-  border: 3px solid white;
+  background-color: var(--button-bg);        /* Dark button background */
+  border: 3px solid var(--button-border);
   width: 120px;
   height: 120px;
   border-radius: 80px;
   margin: 10px;
   cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.move-button:hover {
+  background-color: #3c3c3c;                 /* Slightly lighter on hover */
 }
 
 .result {
   font-size: 25px;
   font-weight: bold;
-  margin-top: 30px;
-}
-
-.score {
-  margin-top: 20px;
-  font-size: 18px;
-}
-
-.reset-score-button {
-  background-color: white;
-  border: none;
-  font-size: 15px;
-  padding: 8px 15px;
-  cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s;
-}
-
-.reset-score-button:hover {
-  background-color: #f2f2f2;
-}
-
-.reset-score-button:active {
-  transform: translateY(1px);
-}
-
-.reset-score-button:focus {
-  box-shadow: 0 0 0 2px #0077ff;
-}
+  margin-top: 3
