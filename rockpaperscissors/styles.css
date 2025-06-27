@@ -38,16 +38,6 @@ body {
   transform: scale(1.1);
 }
 
-.result {
-  font-size: 25px;
-  font-weight: bold;
-  margin-top: 50px;
-}
-
-.score {
-  margin-top: 60px;
-}
-
 .reset-score-button {
   background-color: white;
   border: none;
@@ -89,10 +79,6 @@ body {
 }
 
 @media screen and (max-width: 760px) {
-  .score {
-    margin-top: 80px;
-  }
-
   .move-button {
     width: 60px;
     height: 60px;
@@ -106,10 +92,6 @@ body {
 }
 
 @media screen and (max-width: 480px) {
-  .score {
-    margin-top: 120px;
-  }
-
   .move-button {
     width: 40px;
     height: 40px;
