@@ -1,5 +1,5 @@
-// Retrieve or initialize score from localStorage
-let score = JSON.parse(localStorage.getItem('score')) || {
+// Initialize score
+let score = {
   wins: 0,
   losses: 0,
   ties: 0
@@ -26,8 +26,7 @@ function playGame(playerMove) {
   // Update scores based on result
   updateScore(result);
 
-  // Save score and update UI
-  localStorage.setItem('score', JSON.stringify(score));
+  // Update UI
   updateScoreElement();
   updateMovesAndResult(playerMove, computerMove, result);
 }
@@ -35,16 +34,16 @@ function playGame(playerMove) {
 // Determine the result of the game
 function determineResult(playerMove, computerMove) {
   if (playerMove === computerMove) {
-    return 'One more 😐';
+    return 'It\'s a tie! 😐';
   }
   if (
     (playerMove === 'rock' && computerMove === 'scissors') ||
     (playerMove === 'paper' && computerMove === 'rock') ||
     (playerMove === 'scissors' && computerMove === 'paper')
   ) {
-    return 'I let you win😒 ';
+    return 'You win! 🎉';
   }
-  return 'Haha I win!😊';
+  return 'You lose! 😢';
 }
 
 // Update score based on the result
@@ -64,14 +63,18 @@ function pickComputerMove() {
   return moves[Math.floor(Math.random() * moves.length)];
 }
 
-// Reset the score
-function resetScore() {
-  score = { wins: 0, losses: 0, ties: 0 };
-  localStorage.removeItem('score');
-  updateScoreElement();
+// Reset the score and text
+function resetGame() {
+  score = { wins: 0, losses: 0, ties: 0 }; // Reset score
+  document.querySelector('.js-score').textContent = ''; // Clear score display
+  document.querySelector('.js-moves').textContent = ''; // Clear moves display
+  document.querySelector('.js-result').textContent = ''; // Clear result display
 }
 
-// When the page loads, update the score display
+// When the page loads, reset the game
 window.onload = () => {
-  updateScoreElement();
+  resetGame(); // Reset game on page load
 };
+
+// Attach reset function to the reset button
+document.querySelector('.reset-score-button').onclick = resetGame;
