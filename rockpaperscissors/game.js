@@ -1,4 +1,3 @@
-// Retrieve or initialize score from localStorage
 let score = JSON.parse(localStorage.getItem('score')) || {
   wins: 0,
   losses: 0,
@@ -29,7 +28,6 @@ function playGame(playerMove) {
     } else {
       result = 'One more 😐';
     }
-
   } else if (playerMove === 'paper') {
     if (computerMove === 'rock') {
       result = 'Oh man. You win 🙄';
@@ -38,7 +36,6 @@ function playGame(playerMove) {
     } else {
       result = 'Haha sucker! 😊';
     }
-    
   } else if (playerMove === 'rock') {
     if (computerMove === 'rock') {
       result = 'One more 😐';
