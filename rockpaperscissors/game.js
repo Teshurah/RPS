@@ -1,24 +1,20 @@
-// Retrieve or initialize score from localStorage
 let score = JSON.parse(localStorage.getItem('score')) || {
   wins: 0,
   losses: 0,
   ties: 0
 };
 
-// Update score display elements on the page
 function updateScoreElement() {
   document.querySelector('.js-score').textContent =
     `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
 }
 
-// Update moves and result display elements on the page
 function updateMovesAndResult(playerMove, computerMove, result) {
   document.querySelector('.js-moves').textContent =
     `You picked ${playerMove}. Computer picked ${computerMove}.`;
   document.querySelector('.js-result').textContent = result;
 }
 
-// The main game function called by button clicks
 function playGame(playerMove) {
   const computerMove = pickComputerMove();
 
@@ -52,7 +48,6 @@ function playGame(playerMove) {
     }
   }
 
-  // Update scores based on result
   if (result.includes('I let you win that one') || result.includes('Oh man. You win')) {
     score.wins += 1;
   } else if (result.includes('Haha You lose') || result.includes('Haha sucker!') || result.includes('You lose!')) {
@@ -63,13 +58,12 @@ function playGame(playerMove) {
     score.ties += 1;
   }
 
-  // Save score and update UI
   localStorage.setItem('score', JSON.stringify(score));
   updateScoreElement();
   updateMovesAndResult(playerMove, computerMove, result);
 }
 
-// Pick a random move for the computer
+// Random computer move picker
 function pickComputerMove() {
   const randomNumber = Math.random();
 
@@ -82,11 +76,6 @@ function pickComputerMove() {
   }
 }
 
-// When the page loads, update the score display
 window.onload = () => {
   updateScoreElement();
 };
-
-
-  return computerMove;
-}
