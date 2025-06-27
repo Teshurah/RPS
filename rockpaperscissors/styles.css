@@ -1,9 +1,11 @@
 :root {
   --bg-color: rgb(25, 25, 25);
   --text-color: white;
-  --font-family: Arial;
+  --font-family: Arial, sans-serif;
   --button-bg: #2e2e2e;
   --button-border: white;
+  --button-hover-bg: #3c3c3c;
+  --reset-button-bg: #ff4444;
 }
 
 body {
@@ -11,12 +13,13 @@ body {
   color: var(--text-color);
   font-family: var(--font-family);
   text-align: center;
-  padding: 20px;
   margin: 0;
+  padding: 20px;
 }
 
 .title {
-  font-size: 30px;
+  font-size: 2em;
+  margin-top: 20px;
   font-weight: bold;
 }
 
@@ -24,15 +27,11 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 20px 0;
-}
-
-.move-icon {
-  height: 50px;
+  margin-top: 20px;
 }
 
 .move-button {
-  background-color: var(--button-bg);        /* Dark button background */
+  background-color: var(--button-bg);
   border: 3px solid var(--button-border);
   width: 120px;
   height: 120px;
@@ -43,10 +42,30 @@ body {
 }
 
 .move-button:hover {
-  background-color: #3c3c3c;                 /* Slightly lighter on hover */
+  background-color: var(--button-hover-bg);
 }
 
-.result {
-  font-size: 25px;
-  font-weight: bold;
-  margin-top: 3
+.move-icon {
+  width: 80px;
+  height: 80px;
+}
+
+.result, .js-moves, .score {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.reset-score-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: var(--reset-button-bg);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.reset-score-button:hover {
+  background-color: #cc3333;
+}
