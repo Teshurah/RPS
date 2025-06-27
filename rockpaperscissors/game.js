@@ -21,39 +21,56 @@ function playGame(playerMove) {
 
   if (playerMove === 'scissors') {
     if (computerMove === 'rock') {
-      result = 'You lose.';
+      result = 'Haha You lose';
     } else if (computerMove === 'paper') {
-      result = 'You win.';
+      result = 'I let you win that one';
     } else if (computerMove === 'scissors') {
-      result = 'Tie.';
+      result = 'One more';
     }
 
   } else if (playerMove === 'paper') {
     if (computerMove === 'rock') {
-      result = 'You win.';
+      result = 'Oh man. You win';
     } else if (computerMove === 'paper') {
-      result = 'Tie.';
+      result = 'Dont copy me';
     } else if (computerMove === 'scissors') {
-      result = 'You lose.';
+      result = 'Haha sucker!';
     }
     
   } else if (playerMove === 'rock') {
     if (computerMove === 'rock') {
-      result = 'Tie.';
+      result = 'One more';
     } else if (computerMove === 'paper') {
-      result = 'You lose.';
+      result = 'You lose!';
     } else if (computerMove === 'scissors') {
-      result = 'You win.';
+      result = 'You cheated';
     }
   }
 
-  if (result === 'You win.') {
+  if (result === 'I let you win that one') {
     score.wins += 1;
-  } else if (result === 'You lose.') {
+  } else if (result === 'Haha You lose') {
     score.losses += 1;
-  } else if (result === 'Tie.') {
+  } else if (result === 'One more') {
     score.ties += 1;
   }
+  
+   if (result === 'Oh man. You win') {
+    score.wins += 1;
+  } else if (result === 'Haha sucker!') {
+    score.losses += 1;
+  } else if (result === 'Dont copy me') {
+    score.ties += 1;
+  }
+  
+ if (result === 'You win.') {
+    score.wins += 1;
+  } else if (result === 'You lose!') {
+    score.losses += 1;
+  } else if (result === 'You cheated') {
+    score.ties += 1;
+  }
+
 
   localStorage.setItem('score', JSON.stringify(score));
 
