@@ -1,3 +1,6 @@
+// Constants for game moves
+const MOVES = ['rock', 'paper', 'scissors'];
+
 // Initialize score
 let score = {
   wins: 0,
@@ -6,29 +9,29 @@ let score = {
 };
 
 // Update score display elements on the page
-function updateScoreElement() {
-  document.querySelector('.js-score').textContent =
+function updateScoreDisplay() {
+  document.querySelector('.js-score').textContent = 
     `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
 }
 
 // Update moves and result display elements on the page
-function updateMovesAndResult(playerMove, computerMove, result) {
-  document.querySelector('.js-moves').textContent =
+function updateGameDisplay(playerMove, computerMove, result) {
+  document.querySelector('.js-moves').textContent = 
     `You picked ${playerMove}. Computer picked ${computerMove}.`;
   document.querySelector('.js-result').textContent = result;
 }
 
-// The main game function called by button clicks
+// Main game function called by button clicks
 function playGame(playerMove) {
-  const computerMove = pickComputerMove();
-  let result = determineResult(playerMove, computerMove);
+  const computerMove = pickRandomMove();
+  const result = determineResult(playerMove, computerMove);
 
   // Update scores based on result
   updateScore(result);
 
   // Update UI
-  updateScoreElement();
-  updateMovesAndResult(playerMove, computerMove, result);
+  updateScoreDisplay();
+  updateGameDisplay(playerMove, computerMove, result);
 }
 
 // Determine the result of the game
@@ -49,32 +52,42 @@ function determineResult(playerMove, computerMove) {
 // Update score based on the result
 function updateScore(result) {
   if (result.includes('win')) {
-    score.wins += 1;
+    score.wins++;
   } else if (result.includes('lose')) {
-    score.losses += 1;
+    score.losses++;
   } else {
-    score.ties += 1;
+    score.ties++;
   }
 }
 
 // Pick a random move for the computer
-function pickComputerMove() {
-  const moves = ['rock', 'paper', 'scissors'];
-  return moves[Math.floor(Math.random() * moves.length)];
+function pickRandomMove() {
+  return MOVES[Math.floor(Math.random() * MOVES.length)];
 }
 
-// Reset the score and text
+// Reset the game
 function resetGame() {
   score = { wins: 0, losses: 0, ties: 0 }; // Reset score
   document.querySelector('.js-score').textContent = ''; // Clear score display
   document.querySelector('.js-moves').textContent = ''; // Clear moves display
   document.querySelector('.js-result').textContent = ''; // Clear result display
+  updateScoreDisplay(); // Update score display after reset
 }
 
-// When the page loads, reset the game
+// Initialize event listeners
+function initializeEventListeners() {
+  document.querySelectorAll('.move-button').forEach(button => {
+    button.addEventListener('click', () => {
+      const playerMove = button.querySelector('img').alt.toLowerCase();
+      playGame(playerMove);
+    });
+  });
+
+  document.querySelector('.reset-score-button').addEventListener('click', resetGame);
+}
+
+// When the page loads, reset the game and initialize event listeners
 window.onload = () => {
   resetGame(); // Reset game on page load
+  initializeEventListeners(); // Set up event listeners
 };
-
-// Attach reset function to the reset button
-document.querySelector('.reset-score-button').onclick = resetGame;
