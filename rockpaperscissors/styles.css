@@ -2,7 +2,7 @@
 body {
   font-family: 'Arial', sans-serif;
   text-align: center;
-  background-color: #f0f0f0; /* Changed background color to light gray */
+  background: linear-gradient(to bottom right, #f0f0f0, #d9d9d9); /* Gradient background */
   color: black; /* Text color set to black for contrast */
   margin: 0;
   padding: 0;
@@ -10,7 +10,7 @@ body {
 
 /* Title Styles */
 .title {
-  font-size: 2.5em; /* Increased font size for the title */
+  font-size: 3em; /* Increased font size for the title */
   margin-top: 20px;
   text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7); /* Added shadow for better visibility */
 }
@@ -25,21 +25,25 @@ body {
 
 /* Button Styles */
 .move-button {
-  background-color: transparent; /* Transparent background */
+  background-color: white; /* White background for buttons */
   border: none; /* No border */
+  border-radius: 10px; /* Rounded corners */
   cursor: pointer; /* Pointer cursor on hover */
   margin: 10px;
-  transition: transform 0.2s; /* Smooth scaling effect */
+  padding: 20px; /* Padding for button */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  transition: transform 0.2s, box-shadow 0.2s; /* Smooth scaling and shadow effect */
 }
 
 .move-button:hover {
-  transform: scale(1.1); /* Scale up on hover */
+  transform: scale(1.05); /* Scale up on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
 }
 
 /* Image Styles */
 .move-icon {
-  width: 100px; /* Increased icon size */
-  height: 100px; /* Increased icon size */
+  width: 80px; /* Adjusted icon size */
+  height: 80px; /* Adjusted icon size */
 }
 
 /* Result and Score Styles */
@@ -73,12 +77,12 @@ body {
 /* Responsive Styles */
 @media screen and (max-width: 960px) {
   .title {
-    font-size: 2em; /* Adjust title size for smaller screens */
+    font-size: 2.5em; /* Adjust title size for smaller screens */
   }
 
   .move-icon {
-    width: 80px; /* Adjust icon size for smaller screens */
-    height: 80px; /* Adjust icon size for smaller screens */
+    width: 70px; /* Adjust icon size for smaller screens */
+    height: 70px; /* Adjust icon size for smaller screens */
   }
 
   .reset-score-button {
@@ -89,7 +93,7 @@ body {
 
 @media screen and (max-width: 480px) {
   .title {
-    font-size: 1.5em; /* Further adjust title size for very small screens */
+    font-size: 2em; /* Further adjust title size for very small screens */
   }
 
   .move-icon {
