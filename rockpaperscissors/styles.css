@@ -1,28 +1,58 @@
+:root {
+  --bg-color: rgb(25, 25, 25);
+  --text-color: white;
+  --font-family: Arial, sans-serif;
+  --button-bg: #2e2e2e;
+  --button-border: white;
+}
+
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f0f0f0; /* Light background color */
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  text-align: center;
+  padding: 20px;
+  margin: 0;
 }
 
-h1 {
-    margin-top: 20px;
+.title {
+  font-size: 30px;
+  font-weight: bold;
 }
 
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px; /* Space between buttons */
-    margin: 20px 0;
+.game-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
 }
 
-button {
-    background-color: white;
-    border: none;
-    cursor: pointer;
+.move-icon {
+  height: 50px;
 }
 
-button img {
-    width: 100px; /* Resize images appropriately */
-    height: 100px;
+.move-button {
+  background-color: var(--button-bg);        /* Dark button background */
+  border: 3px solid var(--button-border);
+  width: 120px;
+  height: 120px;
+  border-radius: 80px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.move-button:hover {
+  background-color: #3c3c3c;                 /* Slightly lighter on hover */
+}
+
+.result {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.js-moves, .score {
+  font-size: 20px;
+  margin-top: 10px;
 }
