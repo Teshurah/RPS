@@ -1,7 +1,7 @@
 :root {
   --bg-color: rgb(25, 25, 25);
   --text-color: white;
-  --font-family: Arial, sans-serif;
+  --font-family: Arial;
 }
 
 body {
@@ -31,11 +31,16 @@ body {
   border-radius: 80px;
   margin: 10px 5px;
   cursor: pointer;
-  transition: transform 0.1s ease;
 }
 
-.move-button:hover {
-  transform: scale(1.1);
+.result {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+.score {
+  margin-top: 60px;
 }
 
 .reset-score-button {
@@ -45,7 +50,6 @@ body {
   padding: 8px 15px;
   cursor: pointer;
   transition: background-color 0.2s, transform 0.1s;
-  margin-top: 40px;
 }
 
 .reset-score-button:hover {
@@ -79,6 +83,10 @@ body {
 }
 
 @media screen and (max-width: 760px) {
+  .score {
+    margin-top: 80px;
+  }
+
   .move-button {
     width: 60px;
     height: 60px;
@@ -92,6 +100,10 @@ body {
 }
 
 @media screen and (max-width: 480px) {
+  .score {
+    margin-top: 120px;
+  }
+
   .move-button {
     width: 40px;
     height: 40px;
@@ -104,31 +116,8 @@ body {
   }
 }
 
-/* Big result message styling */
+  }
 
-.js-result {
-  font-size: 3em;
-  font-weight: 700;
-  color: var(--text-color);
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-  margin: 50px auto 20px;
-  max-width: 700px;
-  user-select: none;
-}
+  */
 
-.js-moves {
-  font-size: 1.5em;
-  margin-top: 15px;
-  color: var(--text-color);
-  opacity: 0.8;
-}
 
-.js-score {
-  font-size: 1.2em;
-  margin-top: 40px;
-  color: var(--text-color);
-  font-weight: 600;
-}
