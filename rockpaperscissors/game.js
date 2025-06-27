@@ -8,7 +8,6 @@ updateScoreElement();
 
 function playGame(playerMove) {
   const computerMove = pickComputerMove();
-
   let result = '';
 
   if (playerMove === 'scissors') {
@@ -19,7 +18,6 @@ function playGame(playerMove) {
     } else {
       result = 'One more 😐';
     }
-
   } else if (playerMove === 'paper') {
     if (computerMove === 'rock') {
       result = 'Oh man. You win 🙄';
@@ -28,7 +26,6 @@ function playGame(playerMove) {
     } else {
       result = 'Haha sucker! 😊';
     }
-
   } else if (playerMove === 'rock') {
     if (computerMove === 'rock') {
       result = 'One more 😐';
@@ -39,10 +36,9 @@ function playGame(playerMove) {
     }
   }
 
-  // Update score
-  if (result.includes('You win') || result.includes('I let you win')) {
+  if (result.includes('win') || result.includes('I let you win')) {
     score.wins++;
-  } else if (result.includes('You lose') || result.includes('sucker')) {
+  } else if (result.includes('lose') || result.includes('sucker')) {
     score.losses++;
   } else {
     score.ties++;
@@ -55,11 +51,10 @@ function playGame(playerMove) {
 }
 
 function pickComputerMove() {
-  const randomNumber = Math.random();
-
-  if (randomNumber < 1 / 3) {
+  const random = Math.random();
+  if (random < 1 / 3) {
     return 'rock';
-  } else if (randomNumber < 2 / 3) {
+  } else if (random < 2 / 3) {
     return 'paper';
   } else {
     return 'scissors';
