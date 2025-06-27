@@ -1,36 +1,93 @@
-   <!DOCTYPE html>
-   <html lang="en">
-   <head>
-     <meta charset="UTF-8">
-     <title>Rock Paper Scissors</title>
-     <link rel="stylesheet" href="styles.css">
-     <link rel="icon" href="logo.png" type="image/png">
-     <script src="game.js" defer></script>
-   </head>
-   <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="rockpaperscissors/styles.css">
+  <link rel="icon" href="rockpaperscissors/logo.png" type="image/png">
+  <script src="rockpaperscissors/game.js" defer></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
 
-     <p class="title">Rock Paper Scissors</p>
+    .title {
+      font-size: 2em;
+      margin-top: 20px;
+    }
 
-     <div class="game-container">
-       <button onclick="playGame('rock');" class="move-button">
-         <img src="rock.png" class="move-icon" alt="Rock">
-       </button>
+    .move-button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      margin: 10px;
+    }
 
-       <button onclick="playGame('paper');" class="move-button">
-         <img src="paper.png" class="move-icon" alt="Paper">
-       </button>
+    .move-icon {
+      width: 80px;
+      height: 80px;
+    }
 
-       <button onclick="playGame('scissors');" class="move-button">
-         <img src="scissors.png" class="move-icon" alt="Scissors">
-       </button>
-     </div>
+    .result, .js-moves, .score {
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
 
-     <p class="js-result result"></p>
-     <p class="js-moves"></p>
-     <p class="js-score score"></p>
+    .reset-score-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #ff4444;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.1s;
+    }
 
-     <button onclick="resetScore();" class="reset-score-button">Reset Score</button>
+    .reset-score-button:hover {
+      background-color: #ff6666;
+    }
 
-   </body>
-   </html>
-   
+    .reset-score-button:active {
+      transform: translateY(1px);
+    }
+
+    .game-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <p class="title">Rock Paper Scissors</p>
+
+  <div class="game-container">
+    <button onclick="playGame('rock');" class="move-button">
+      <img src="rockpaperscissors/rock.png" class="move-icon" alt="Rock">
+    </button>
+
+    <button onclick="playGame('paper');" class="move-button">
+      <img src="rockpaperscissors/paper.png" class="move-icon" alt="Paper">
+    </button>
+
+    <button onclick="playGame('scissors');" class="move-button">
+      <img src="rockpaperscissors/scissors.png" class="move-icon" alt="Scissors">
+    </button>
+  </div>
+
+  <p class="js-result result"></p>
+  <p class="js-moves"></p>
+  <p class="js-score score"></p>
+
+  <button onclick="resetScore();" class="reset-score-button">Reset Score</button>
+
+</body>
+</html>
