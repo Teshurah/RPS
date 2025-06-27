@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Rock Paper Scissors</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="game.js" defer></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rock Paper Scissors</title>
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
   <h1 class="title">Rock Paper Scissors</h1>
 
   <div class="game-container">
-    <button class="move-button" onclick="playGame('rock')">
-      <!-- Replace these emoji with your transparent PNG icons -->
-      <span class="move-icon" role="img" aria-label="rock">✊</span>
+    <button class="move-button" onclick="playGame('rock')" aria-label="Rock">
+      <img src="rockpaperscissors/rock.png" alt="Rock" class="move-icon" />
     </button>
-    <button class="move-button" onclick="playGame('paper')">
-      <span class="move-icon" role="img" aria-label="paper">✋</span>
+    <button class="move-button" onclick="playGame('paper')" aria-label="Paper">
+      <img src="rockpaperscissors/paper.png" alt="Paper" class="move-icon" />
     </button>
-    <button class="move-button" onclick="playGame('scissors')">
-      <span class="move-icon" role="img" aria-label="scissors">✌️</span>
+    <button class="move-button" onclick="playGame('scissors')" aria-label="Scissors">
+      <img src="rockpaperscissors/scissors.png" alt="Scissors" class="move-icon" />
     </button>
   </div>
 
@@ -29,5 +28,6 @@
 
   <button class="reset-score-button" onclick="resetScore()">Reset Score</button>
 
+  <script src="game.js"></script>
 </body>
 </html>
