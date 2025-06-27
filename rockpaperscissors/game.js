@@ -17,41 +17,21 @@ function updateMovesAndResult(playerMove, computerMove, result) {
 
 function playGame(playerMove) {
   const computerMove = pickComputerMove();
-
   let result = '';
 
-  if (playerMove === 'scissors') {
-    if (computerMove === 'rock') {
-      result = 'Haha You lose 😊';
-    } else if (computerMove === 'paper') {
-      result = 'I let you win that one 🙄';
-    } else {
-      result = 'One more 😐';
-    }
-  } else if (playerMove === 'paper') {
-    if (computerMove === 'rock') {
-      result = 'Oh man. You win 🙄';
-    } else if (computerMove === 'paper') {
-      result = 'Don’t copy me 😐';
-    } else {
-      result = 'Haha sucker! 😊';
-    }
-  } else if (playerMove === 'rock') {
-    if (computerMove === 'rock') {
-      result = 'One more 😐';
-    } else if (computerMove === 'paper') {
-      result = 'You lose! 😊';
-    } else {
-      result = 'You cheated 🙄';
-    }
-  }
-
-  if (result.includes('let you win') || result.includes('You win')) {
-    score.wins++;
-  } else if (result.includes('lose') || result.includes('sucker')) {
-    score.losses++;
-  } else {
+  if (playerMove === computerMove) {
+    result = 'It’s a tie 😐';
     score.ties++;
+  } else if (
+    (playerMove === 'rock' && computerMove === 'scissors') ||
+    (playerMove === 'paper' && computerMove === 'rock') ||
+    (playerMove === 'scissors' && computerMove === 'paper')
+  ) {
+    result = 'You win! 🙌';
+    score.wins++;
+  } else {
+    result = 'You lose 😢';
+    score.losses++;
   }
 
   localStorage.setItem('score', JSON.stringify(score));
@@ -60,10 +40,9 @@ function playGame(playerMove) {
 }
 
 function pickComputerMove() {
-  const randomNumber = Math.random();
-  if (randomNumber < 1 / 3) return 'rock';
-  if (randomNumber < 2 / 3) return 'paper';
-  return 'scissors';
+  const moves = ['rock', 'paper', 'scissors'];
+  const randomIndex = Math.floor(Math.random() * 3);
+  return moves[randomIndex];
 }
 
 function resetScore() {
