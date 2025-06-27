@@ -1,84 +1,112 @@
 :root {
-  --bg-color: #000000;
+  --bg-color: rgb(25, 25, 25);
   --text-color: white;
-  --font-family: Arial, sans-serif;
-  --button-bg: #2e2e2e;
-  --button-border: white;
-  --button-hover-bg: #3c3c3c;
-  --reset-button-bg: #ff4444;
+  --font-family: Arial;
 }
 
-html, body {
-  background-color: var(--bg-color) !important;
-  margin: 0;
-  padding: 0;
-  height: 100%;
+body {
+  background-color: var(--bg-color);
   color: var(--text-color);
   font-family: var(--font-family);
   text-align: center;
-}
-
-.title {
-  font-size: 2em;
-  margin-top: 20px;
-  font-weight: bold;
-}
-
-.game-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 20px 0;
-}
-
-.move-button {
-  background-color: var(--button-bg);
-  border: 3px solid var(--button-border);
-  width: 120px;
-  height: 120px;
-  border-radius: 80px;
-  margin: 10px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+  margin: 0;
   padding: 0;
 }
 
-.move-button:hover {
-  background-color: var(--button-hover-bg);
+.title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 20px;
 }
 
 .move-icon {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  display: block;
-  margin: auto;
-  background-color: transparent;
+  height: 50px;
 }
 
-.result, .js-moves, .score {
-  font-size: 1.2em;
-  margin: 10px 0;
+.move-button {
+  background-color: rgba(255, 255, 255, 0.945);
+  border: 3px solid white;
+  width: 120px;
+  height: 120px;
+  border-radius: 80px;
+  margin: 10px 5px;
+  cursor: pointer;
 }
 
-.result {
+.score {
+  font-size: 20px;
+  margin-top: 60px;
   font-weight: bold;
-  font-size: 1.5em;
-  margin-top: 30px;
 }
 
 .reset-score-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 1em;
-  background-color: var(--reset-button-bg);
-  color: white;
+  background-color: white;
   border: none;
-  border-radius: 5px;
+  font-size: 15px;
+  padding: 8px 15px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s, transform 0.1s;
 }
 
 .reset-score-button:hover {
-  background-color: #cc3333;
+  background-color: #f2f2f2;
+}
+
+.reset-score-button:active {
+  transform: translateY(1px);
+}
+
+.reset-score-button:focus {
+  box-shadow: 0 0 0 2px #0077ff;
+}
+
+@media screen and (max-width: 960px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .move-button {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+  }
+
+  .reset-score-button {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .score {
+    margin-top: 80px;
+  }
+
+  .move-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+  }
+
+  .reset-score-button {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .score {
+    margin-top: 120px;
+  }
+
+  .move-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+  }
+
+  .reset-score-button {
+    font-size: 10px;
+    padding: 2px 4px;
+  }
 }
