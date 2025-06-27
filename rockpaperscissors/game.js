@@ -16,7 +16,7 @@ function playGame(playerMove) {
       result = 'Haha You lose 😊';
     } else if (computerMove === 'paper') {
       result = 'I let you win that one 🙄';
-    } else if (computerMove === 'scissors') {
+    } else {
       result = 'One more 😐';
     }
 
@@ -25,7 +25,7 @@ function playGame(playerMove) {
       result = 'Oh man. You win 🙄';
     } else if (computerMove === 'paper') {
       result = 'Dont copy me 😐';
-    } else if (computerMove === 'scissors') {
+    } else {
       result = 'Haha sucker! 😊';
     }
 
@@ -34,20 +34,18 @@ function playGame(playerMove) {
       result = 'One more 😐';
     } else if (computerMove === 'paper') {
       result = 'You lose! 😊';
-    } else if (computerMove === 'scissors') {
+    } else {
       result = 'You cheated 🙄';
     }
   }
 
-  // Update score based on result
-  if (result === 'I let you win that one 🙄' || result === 'Oh man. You win 🙄') {
-    score.wins += 1;
-  } else if (result === 'Haha You lose 😊' || result === 'Haha sucker! 😊' || result === 'You lose! 😊') {
-    score.losses += 1;
-  } else if (result === 'One more 😐' || result === 'Dont copy me 😐') {
-    score.ties += 1;
-  } else if (result === 'You cheated 🙄') {
-    score.ties += 1;
+  // Update score
+  if (result.includes('You win') || result.includes('I let you win')) {
+    score.wins++;
+  } else if (result.includes('You lose') || result.includes('sucker')) {
+    score.losses++;
+  } else {
+    score.ties++;
   }
 
   localStorage.setItem('score', JSON.stringify(score));
@@ -74,9 +72,7 @@ function updateScoreElement() {
 }
 
 function resetScore() {
-  score.wins = 0;
-  score.losses = 0;
-  score.ties = 0;
+  score = { wins: 0, losses: 0, ties: 0 };
   localStorage.removeItem('score');
   updateScoreElement();
 }
