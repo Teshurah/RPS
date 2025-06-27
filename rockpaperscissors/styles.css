@@ -1,81 +1,90 @@
 :root {
-  --bg-color: #191919; /* dark background */
+  --bg-color: rgb(25, 25, 25);
   --text-color: white;
   --font-family: Arial, sans-serif;
-  --button-bg: transparent;
+  --button-bg: #2e2e2e;
   --button-border: white;
-  --button-hover-bg: rgba(255, 255, 255, 0.1);
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
+body {
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: var(--font-family);
   text-align: center;
+  margin: 0;
+  padding: 20px;
 }
 
 .title {
-  font-size: 2.5rem;
-  margin: 20px 0;
+  font-size: 30px;
   font-weight: bold;
+  margin-top: 0;
 }
 
 .game-container {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  margin-bottom: 30px;
+  flex-wrap: wrap;
+  margin: 20px 0;
 }
 
 .move-button {
   background-color: var(--button-bg);
   border: 3px solid var(--button-border);
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
+  border-radius: 80px;
+  margin: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s;
+  padding: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .move-button:hover {
-  background-color: var(--button-hover-bg);
+  background-color: #3c3c3c;
 }
 
 .move-icon {
-  font-size: 3.5rem; /* emoji size */
+  height: 80px;
+  background-color: transparent;
   user-select: none;
 }
 
-.js-moves, .js-score, .result {
-  font-size: 1.25rem;
-  margin: 10px 0;
-  font-weight: 600;
+.result {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 30px;
 }
 
-.result {
-  font-size: 1.5rem;
-  margin-top: 25px;
+.js-moves, .js-score {
+  font-size: 20px;
+  margin-top: 10px;
 }
 
 .reset-score-button {
   background-color: white;
   border: none;
-  color: var(--bg-color);
-  padding: 10px 20px;
-  font-size: 1rem;
+  font-size: 15px;
+  padding: 8px 15px;
   cursor: pointer;
-  border-radius: 6px;
+  transition: background-color 0.2s, transform 0.1s;
+  color: var(--bg-color);
   font-weight: bold;
-  transition: background-color 0.2s ease;
-  margin-bottom: 30px;
+  border-radius: 5px;
+  margin-top: 30px;
 }
 
 .reset-score-button:hover {
   background-color: #f2f2f2;
+}
+
+.reset-score-button:active {
+  transform: translateY(1px);
+}
+
+.reset-score-button:focus {
+  box-shadow: 0 0 0 2px #0077ff;
 }
