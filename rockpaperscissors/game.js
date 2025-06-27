@@ -4,52 +4,54 @@ let score = JSON.parse(localStorage.getItem('score')) || {
   ties: 0
 };
 
-updateScoreElement();
+function updateScoreElement() {
+  document.querySelector('.js-score').textContent =
+    `Wins: ${score.wins} | Losses: ${score.losses} | Ties: ${score.ties}`;
+}
+
+function updateMovesAndResult(playerMove, computerMove, result) {
+  document.querySelector('.js-moves').textContent =
+    `You picked ${playerMove}. Computer picked ${computerMove}.`;
+  document.querySelector('.js-result').textContent = result;
+}
 
 function playGame(playerMove) {
   const computerMove = pickComputerMove();
   let result = '';
 
   if (playerMove === computerMove) {
-    result = "It's a tie 😐";
+    result = 'It’s a tie 😐';
     score.ties++;
   } else if (
     (playerMove === 'rock' && computerMove === 'scissors') ||
     (playerMove === 'paper' && computerMove === 'rock') ||
     (playerMove === 'scissors' && computerMove === 'paper')
   ) {
-    result = 'I let you win🙄';
+    result = 'You win! 🎉';
     score.wins++;
   } else {
-    result = 'Haha i win😊';
+    result = 'You lose 😢';
     score.losses++;
   }
 
   localStorage.setItem('score', JSON.stringify(score));
-
-  alert(`You picked ${playerMove}.\nComputer picked ${computerMove}.\n\n${result}\n\nWins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
-
   updateScoreElement();
+  updateMovesAndResult(playerMove, computerMove, result);
 }
 
 function pickComputerMove() {
-  const random = Math.random();
-  if (random < 1 / 3) {
-    return 'rock';
-  } else if (random < 2 / 3) {
-    return 'paper';
-  } else {
-    return 'scissors';
-  }
-}
-
-function updateScoreElement() {
-  document.getElementById('score-text').textContent =
-    `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+  const moves = ['rock', 'paper', 'scissors'];
+  return moves[Math.floor(Math.random() * moves.length)];
 }
 
 function resetScore() {
   score = { wins: 0, losses: 0, ties: 0 };
   localStorage.removeItem('score');
   updateScoreElement();
+  document.querySelector('.js-moves').textContent = '';
+  document.querySelector('.js-result').textContent = '';
 }
+
+window.onload = () => {
+  updateScoreElement();
+};
