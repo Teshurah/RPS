@@ -1,8 +1,7 @@
 :root {
-  --bg-color: #121212;
-  --text-color: #fff;
-  --font-family: 'Arial', sans-serif;
-  --button-size: 100px;
+  --bg-color: rgb(25, 25, 25);
+  --text-color: white;
+  --font-family: Arial;
 }
 
 body {
@@ -11,90 +10,112 @@ body {
   font-family: var(--font-family);
   text-align: center;
   margin: 0;
-  padding: 30px 20px;
-  min-height: 100vh;
+  padding: 0;
 }
 
 .title {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 30px;
-}
-
-.game-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
-}
-
-.move-button {
-  width: var(--button-size);
-  height: var(--button-size);
-  background-color: transparent;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  cursor: pointer;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s, border-color 0.3s;
-}
-
-.move-button:hover {
-  transform: scale(1.1);
-  border-color: #888;
-}
-
-.move-icon {
-  width: 60%;
-  height: 60%;
-  object-fit: contain;
-  pointer-events: none;
-  background-color: transparent;
-}
-
-.result {
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
   margin-top: 20px;
 }
 
-.js-moves, .js-score {
-  font-size: 18px;
-  margin-top: 10px;
+.move-icon {
+  height: 50px;
+}
+
+.move-button {
+  background-color: rgba(255, 255, 255, 0.945);
+  border: 3px solid white;
+  width: 120px;
+  height: 120px;
+  border-radius: 80px;
+  margin: 10px 5px;
+  cursor: pointer;
+}
+
+.result {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+.score {
+  margin-top: 60px;
 }
 
 .reset-score-button {
-  background-color: #fff;
-  color: #000;
+  background-color: white;
   border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 5px;
+  font-size: 15px;
+  padding: 8px 15px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, transform 0.1s;
 }
 
 .reset-score-button:hover {
-  background-color: #e6e6e6;
+  background-color: #f2f2f2;
 }
 
-@media screen and (max-width: 600px) {
+.reset-score-button:active {
+  transform: translateY(1px);
+}
+
+.reset-score-button:focus {
+  box-shadow: 0 0 0 2px #0077ff;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 960px) {
   .title {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .move-button {
     width: 80px;
     height: 80px;
+    border-radius: 40px;
   }
 
-  .move-icon {
-    width: 70%;
-    height: 70%;
+  .reset-score-button {
+    font-size: 13px;
+    padding: 6px 12px;
   }
 }
+
+@media screen and (max-width: 760px) {
+  .score {
+    margin-top: 80px;
+  }
+
+  .move-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+  }
+
+  .reset-score-button {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .score {
+    margin-top: 120px;
+  }
+
+  .move-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+  }
+
+  .reset-score-button {
+    font-size: 10px;
+    padding: 2px 4px;
+  }
+}
+
+  }
+
+  */
