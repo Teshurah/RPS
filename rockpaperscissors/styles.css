@@ -1,57 +1,58 @@
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background-color: black; /* Changed background color to black */
-  color: white; /* Changed text color to white for better contrast */
-  margin: 0;
-  padding: 0;
-}
+   body {
+     font-family: Arial, sans-serif;
+     text-align: center;
+     background-color: black; /* Changed background color to black */
+     color: white; /* Changed text color to white for better contrast */
+     margin: 0;
+     padding: 0;
+   }
 
-.title {
-  font-size: 2em;
-  margin-top: 20px;
-}
+   .title {
+     font-size: 2em;
+     margin-top: 20px;
+   }
 
-.move-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  margin: 10px;
-}
+   .move-button {
+     background-color: transparent;
+     border: none;
+     cursor: pointer;
+     margin: 10px;
+   }
 
-.move-icon {
-  width: 80px;
-  height: 80px;
-}
+   .move-icon {
+     width: 80px;
+     height: 80px;
+   }
 
-.result, .js-moves, .score {
-  font-size: 1.2em;
-  margin: 10px 0;
-}
+   .result, .js-moves, .score {
+     font-size: 1.2em;
+     margin: 10px 0;
+   }
 
-.reset-score-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 1em;
-  background-color: #ff4444;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s;
-}
+   .reset-score-button {
+     margin-top: 20px;
+     padding: 10px 20px;
+     font-size: 1em;
+     background-color: #ff4444;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+     transition: background-color 0.2s, transform 0.1s;
+   }
 
-.reset-score-button:hover {
-  background-color: #ff6666;
-}
+   .reset-score-button:hover {
+     background-color: #ff6666;
+   }
 
-.reset-score-button:active {
-  transform: translateY(1px);
-}
+   .reset-score-button:active {
+     transform: translateY(1px);
+   }
 
-.game-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
+   .game-container {
+     display: flex;
+     justify-content: center;
+     flex-wrap: wrap;
+     margin-top: 20px;
+   }
+   
