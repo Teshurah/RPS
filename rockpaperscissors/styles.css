@@ -1,33 +1,37 @@
 body {
   font-family: Arial, sans-serif;
-  background: #282c34;
-  color: white;
+  background-color: #1c1c1c;
+  color: #ffffff;
   text-align: center;
   margin: 0;
   padding: 0;
 }
 
 .container {
-  padding: 20px;
+  padding: 2rem;
 }
 
-.logo {
-  width: 100px;
-  margin: 20px auto;
+h1 {
+  margin-bottom: 2rem;
 }
 
-.choices img {
-  width: 100px;
+.buttons button {
+  background: none;
+  border: none;
   margin: 10px;
   cursor: pointer;
+}
+
+.buttons img {
+  width: 100px;
   transition: transform 0.2s;
 }
 
-.choices img:hover {
+.buttons img:hover {
   transform: scale(1.1);
 }
 
 .result {
-  margin-top: 20px;
+  margin-top: 2rem;
   font-size: 1.2rem;
 }
