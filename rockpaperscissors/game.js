@@ -1,25 +1,52 @@
-const choices = ["rock", "paper", "scissors"];
+let score = JSON.parse(localStorage.getItem('score')) || {
+  wins: 0,
+  losses: 0,
+  ties: 0
+};
 
-document.getElementById("rock").onclick = () => play("rock");
-document.getElementById("paper").onclick = () => play("paper");
-document.getElementById("scissors").onclick = () => play("scissors");
+updateScoreDisplay();
 
-function play(userChoice) {
-  const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+function playGame(playerMove) {
+  const computerMove = pickComputerMove();
+  let result = '';
 
-  document.getElementById("user-choice").textContent = `You chose: ${userChoice}`;
-  document.getElementById("computer-choice").textContent = `Computer chose: ${computerChoice}`;
-
-  let winner = "It's a draw!";
-  if (
-    (userChoice === "rock" && computerChoice === "scissors") ||
-    (userChoice === "paper" && computerChoice === "rock") ||
-    (userChoice === "scissors" && computerChoice === "paper")
+  if (playerMove === computerMove) {
+    result = 'It\'s a tie!';
+    score.ties++;
+  } else if (
+    (playerMove === 'rock' && computerMove === 'scissors') ||
+    (playerMove === 'paper' && computerMove === 'rock') ||
+    (playerMove === 'scissors' && computerMove === 'paper')
   ) {
-    winner = "You win!";
-  } else if (userChoice !== computerChoice) {
-    winner = "Computer wins!";
+    result = 'You win!';
+    score.wins++;
+  } else {
+    result = 'You lose!';
+    score.losses++;
   }
 
-  document.getElementById("winner").textContent = `Winner: ${winner}`;
+  localStorage.setItem('score', JSON.stringify(score));
+
+  document.getElementById('result-text').textContent = 
+    `You picked ${playerMove}. Computer picked ${computerMove}. ${result}`;
+
+  updateScoreDisplay();
+}
+
+function pickComputerMove() {
+  const moves = ['rock', 'paper', 'scissors'];
+  const randomIndex = Math.floor(Math.random() * moves.length);
+  return moves[randomIndex];
+}
+
+function updateScoreDisplay() {
+  document.getElementById('score').textContent = 
+    `Wins: ${score.wins} | Losses: ${score.losses} | Ties: ${score.ties}`;
+}
+
+function resetScore() {
+  score = { wins: 0, losses: 0, ties: 0 };
+  localStorage.removeItem('score');
+  updateScoreDisplay();
+  document.getElementById('result-text').textContent = 'Make your move!';
 }
