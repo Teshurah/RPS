@@ -1,57 +1,25 @@
-let score = JSON.parse(localStorage.getItem('score')) || {
-  wins: 0,
-  losses: 0,
-  ties: 0
-};
+const choices = ["rock", "paper", "scissors"];
 
-function updateScoreElement() {
-  document.querySelector('.js-score').textContent =
-    `Wins: ${score.wins} | Losses: ${score.losses} | Ties: ${score.ties}`;
-}
+document.getElementById("rock").onclick = () => play("rock");
+document.getElementById("paper").onclick = () => play("paper");
+document.getElementById("scissors").onclick = () => play("scissors");
 
-function updateMovesAndResult(playerMove, computerMove, result) {
-  document.querySelector('.js-moves').textContent =
-    `You picked ${playerMove}. Computer picked ${computerMove}.`;
-  document.querySelector('.js-result').textContent = result;
-}
+function play(userChoice) {
+  const computerChoice = choices[Math.floor(Math.random() * choices.length)];
 
-function playGame(playerMove) {
-  const computerMove = pickComputerMove();
-  let result = '';
+  document.getElementById("user-choice").textContent = `You chose: ${userChoice}`;
+  document.getElementById("computer-choice").textContent = `Computer chose: ${computerChoice}`;
 
-  if (playerMove === computerMove) {
-    result = 'It’s a tie 😐';
-    score.ties++;
-  } else if (
-    (playerMove === 'rock' && computerMove === 'scissors') ||
-    (playerMove === 'paper' && computerMove === 'rock') ||
-    (playerMove === 'scissors' && computerMove === 'paper')
+  let winner = "It's a draw!";
+  if (
+    (userChoice === "rock" && computerChoice === "scissors") ||
+    (userChoice === "paper" && computerChoice === "rock") ||
+    (userChoice === "scissors" && computerChoice === "paper")
   ) {
-    result = 'You win! 🎉';
-    score.wins++;
-  } else {
-    result = 'You lose 😢';
-    score.losses++;
+    winner = "You win!";
+  } else if (userChoice !== computerChoice) {
+    winner = "Computer wins!";
   }
 
-  localStorage.setItem('score', JSON.stringify(score));
-  updateScoreElement();
-  updateMovesAndResult(playerMove, computerMove, result);
+  document.getElementById("winner").textContent = `Winner: ${winner}`;
 }
-
-function pickComputerMove() {
-  const moves = ['rock', 'paper', 'scissors'];
-  return moves[Math.floor(Math.random() * moves.length)];
-}
-
-function resetScore() {
-  score = { wins: 0, losses: 0, ties: 0 };
-  localStorage.removeItem('score');
-  updateScoreElement();
-  document.querySelector('.js-moves').textContent = '';
-  document.querySelector('.js-result').textContent = '';
-}
-
-window.onload = () => {
-  updateScoreElement();
-};
