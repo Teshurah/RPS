@@ -9,17 +9,17 @@ function playGame(playerChoice) {
   let result = "";
 
   if (playerChoice === computerChoice) {
-    result = "It's a tie! Hmm... we both thought the same.";
+    result = "It's a tie! Great minds think alike... unfortunately.";
     ties++;
   } else if (
     (playerChoice === "rock" && computerChoice === "scissors") ||
     (playerChoice === "paper" && computerChoice === "rock") ||
     (playerChoice === "scissors" && computerChoice === "paper")
   ) {
-    result = "You win! Okay okay... you got lucky this time.";
+    result = "You win! Okay fine, that was actually a good move.";
     wins++;
   } else {
-    result = "Computer wins! Too easy. Better luck next round.";
+    result = "Computer wins! Too easy. I expected more from you.";
     losses++;
   }
 
