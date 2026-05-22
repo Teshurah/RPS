@@ -11,7 +11,7 @@ function playGame(playerChoice) {
 
   if (playerChoice === computerChoice) {
     resultTitle = "It's a tie!";
-    resultMessage = "Great minds think alike... but I was still ready.";
+    resultMessage = "Great minds think alike... unfortunatley.";
     ties++;
   } else if (
     (playerChoice === "rock" && computerChoice === "scissors") ||
