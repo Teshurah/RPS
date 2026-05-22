@@ -1,3 +1,7 @@
+let wins = 0;
+let losses = 0;
+let ties = 0;
+
 function playGame(playerChoice) {
   const choices = ["rock", "paper", "scissors"];
   const computerChoice = choices[Math.floor(Math.random() * choices.length)];
@@ -28,5 +32,19 @@ function playGame(playerChoice) {
      <strong>${resultTitle}</strong><br>
      ${resultMessage}`;
 
+  updateScore();
+}
+
+function updateScore() {
+  document.getElementById("score").textContent =
+    `Wins: ${wins} | Losses: ${losses} | Ties: ${ties}`;
+}
+
+function resetScore() {
+  wins = 0;
+  losses = 0;
+  ties = 0;
+
+  document.getElementById("result-text").textContent = "Make your move!";
   updateScore();
 }
