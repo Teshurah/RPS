@@ -5,44 +5,72 @@ let ties = 0;
 let currentStreak = 0;
 let bestStreak = 0;
 
-// Tracks player behavior
+let difficulty = "easy";
+
 let memory = {
   rock: 0,
   paper: 0,
   scissors: 0
 };
 
+/* ================= NAVIGATION ================= */
+
+function setScreen(id) {
+  document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+
+function showLevels() {
+  setScreen("level-screen");
+}
+
+function goIntro() {
+  setScreen("intro-screen");
+}
+
+function startGame(level) {
+  difficulty = level;
+  resetScore();
+  setScreen("game-screen");
+}
+
+/* ================= AI ================= */
+
 function getAIChoice() {
   const moves = ["rock", "paper", "scissors"];
 
-  // 🔹 Always allow randomness so AI never gets stuck
-  if (Math.random() < 0.35) {
+  // EASY = random
+  if (difficulty === "easy") {
     return moves[Math.floor(Math.random() * 3)];
   }
 
-  // 🔹 Weighted prediction (prevents locking into one move)
-  let scores = {
-    rock: memory.rock + Math.random(),
-    paper: memory.paper + Math.random(),
-    scissors: memory.scissors + Math.random()
-  };
-
-  let mostUsed = "rock";
-
-  if (scores.paper > scores.rock && scores.paper > scores.scissors) {
-    mostUsed = "paper";
-  } else if (scores.scissors > scores.rock && scores.scissors > scores.paper) {
-    mostUsed = "scissors";
+  // MEDIUM = half random
+  if (difficulty === "medium" && Math.random() < 0.5) {
+    return moves[Math.floor(Math.random() * 3)];
   }
 
-  // 🔹 Counter the predicted move
-  if (mostUsed === "rock") return "paper";
-  if (mostUsed === "paper") return "scissors";
+  // HARD = learning AI
+  let rockScore = memory.rock + Math.random();
+  let paperScore = memory.paper + Math.random();
+  let scissorsScore = memory.scissors + Math.random();
+
+  let predicted = "rock";
+
+  if (paperScore > rockScore && paperScore >= scissorsScore) {
+    predicted = "paper";
+  } else if (scissorsScore > rockScore && scissorsScore > paperScore) {
+    predicted = "scissors";
+  }
+
+  if (predicted === "rock") return "paper";
+  if (predicted === "paper") return "scissors";
   return "rock";
 }
 
+/* ================= GAME ================= */
+
 function playGame(playerChoice) {
-  // track player move
+
   memory[playerChoice]++;
 
   const computerChoice = getAIChoice();
@@ -53,19 +81,16 @@ function playGame(playerChoice) {
     scissors: "rockpaperscissors/scissors.png"
   };
 
-  // update images on screen
   document.getElementById("player-img").src = images[playerChoice];
   document.getElementById("computer-img").src = images[computerChoice];
 
   let result = "";
 
-  // GAME LOGIC
   if (playerChoice === computerChoice) {
-    result = "It's a Tie!";
+    result = "Tie!";
     ties++;
     currentStreak = 0;
-  } 
-  else if (
+  } else if (
     (playerChoice === "rock" && computerChoice === "scissors") ||
     (playerChoice === "paper" && computerChoice === "rock") ||
     (playerChoice === "scissors" && computerChoice === "paper")
@@ -77,19 +102,19 @@ function playGame(playerChoice) {
     if (currentStreak > bestStreak) {
       bestStreak = currentStreak;
     }
-  } 
-  else {
+  } else {
     result = "Computer Wins!";
     losses++;
     currentStreak = 0;
   }
 
-  // show result
   document.getElementById("result-text").innerHTML =
     `<strong>${result}</strong>`;
 
   updateUI();
 }
+
+/* ================= UI ================= */
 
 function updateUI() {
   document.getElementById("score").textContent =
@@ -102,6 +127,8 @@ function updateUI() {
     `🏆 Best Streak: ${bestStreak}`;
 }
 
+/* ================= RESET ================= */
+
 function resetScore() {
   wins = 0;
   losses = 0;
@@ -109,12 +136,7 @@ function resetScore() {
   currentStreak = 0;
   bestStreak = 0;
 
-  memory = {
-    rock: 0,
-    paper: 0,
-    scissors: 0
-  };
+  memory = { rock: 0, paper: 0, scissors: 0 };
 
-  document.getElementById("result-text").textContent = "Make your move!";
   updateUI();
 }
