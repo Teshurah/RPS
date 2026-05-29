@@ -3,24 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>RPS Battle</title>
+  <title>RPS AI Battle</title>
 
   <link rel="stylesheet" href="rockpaperscissors/styles.css"/>
 </head>
 
 <body>
 
-  <h1>⚔️ Rock Paper Scissors Battle ⚔️</h1>
+  <h1>⚔️ Rock Paper Scissors AI</h1>
 
-  <div class="arena">
+  <!-- STATS -->
+  <div class="stats">
+    <p id="streak">🔥 Current Streak: 0</p>
+    <p id="best-streak">🏆 Best Streak: 0</p>
+  </div>
+
+  <!-- BATTLE AREA -->
+  <div class="battle">
 
     <!-- PLAYER -->
     <div class="side">
       <h2>You</h2>
-      <div id="player-choice" class="choice-box">❔</div>
+      <img id="player-img" src="rockpaperscissors/rock.png" />
     </div>
 
-    <!-- RESULT -->
+    <!-- CENTER -->
     <div class="center">
       <h2>VS</h2>
       <p id="result-text">Make your move!</p>
@@ -30,19 +37,27 @@
     <!-- COMPUTER -->
     <div class="side">
       <h2>Computer</h2>
-      <div id="computer-choice" class="choice-box">❔</div>
+      <img id="computer-img" src="rockpaperscissors/rock.png" />
     </div>
 
   </div>
 
   <!-- BUTTONS -->
   <div class="buttons">
-    <button onclick="playGame('rock')">Rock</button>
-    <button onclick="playGame('paper')">Paper</button>
-    <button onclick="playGame('scissors')">Scissors</button>
+    <button onclick="playGame('rock')">
+      <img src="rockpaperscissors/rock.png" />
+    </button>
+
+    <button onclick="playGame('paper')">
+      <img src="rockpaperscissors/paper.png" />
+    </button>
+
+    <button onclick="playGame('scissors')">
+      <img src="rockpaperscissors/scissors.png" />
+    </button>
   </div>
 
-  <button class="reset" onclick="resetScore()">Reset Score</button>
+  <button onclick="resetScore()">Reset Score</button>
 
   <script src="rockpaperscissors/game.js"></script>
 </body>
