@@ -11,19 +11,21 @@ function playGame(playerChoice) {
 
   if (playerChoice === computerChoice) {
     resultTitle = "It's a tie!";
-    resultMessage = "We both chose the same... weird.";
+    resultMessage = "We both chose the same... interesting.";
     ties++;
-  } else if (
+  } 
+  else if (
     (playerChoice === "rock" && computerChoice === "scissors") ||
     (playerChoice === "paper" && computerChoice === "rock") ||
     (playerChoice === "scissors" && computerChoice === "paper")
   ) {
     resultTitle = "You win!";
-    resultMessage = "Okay fine... that was a good move.";
+    resultMessage = "Okay okay... that was a good move.";
     wins++;
-  } else {
+  } 
+  else {
     resultTitle = "Computer wins!";
-    resultMessage = "Too easy. I’m better at this 😎";
+    resultMessage = "Too easy. I expected more from you 😎";
     losses++;
   }
 
