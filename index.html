@@ -2,34 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rock Paper Scissors</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RPS Battle</title>
 
-  <!-- FIXED CSS PATH -->
-  <link rel="stylesheet" href="rockpaperscissors/styles.css" />
+  <link rel="stylesheet" href="rockpaperscissors/styles.css"/>
 </head>
 
 <body>
 
-  <div class="container">
-    <h1>Rock Paper Scissors</h1>
+  <h1>⚔️ Rock Paper Scissors Battle ⚔️</h1>
 
-    <div class="game">
-      <button onclick="playGame('rock')">Rock</button>
-      <button onclick="playGame('paper')">Paper</button>
-      <button onclick="playGame('scissors')">Scissors</button>
+  <div class="arena">
+
+    <!-- PLAYER -->
+    <div class="side">
+      <h2>You</h2>
+      <div id="player-choice" class="choice-box">❔</div>
     </div>
 
-    <div class="result">
+    <!-- RESULT -->
+    <div class="center">
+      <h2>VS</h2>
       <p id="result-text">Make your move!</p>
       <p id="score">Wins: 0 | Losses: 0 | Ties: 0</p>
     </div>
 
-    <button class="reset" onclick="resetScore()">Reset Score</button>
+    <!-- COMPUTER -->
+    <div class="side">
+      <h2>Computer</h2>
+      <div id="computer-choice" class="choice-box">❔</div>
+    </div>
+
   </div>
 
-  <!-- FIXED JS PATH -->
-  <script src="rockpaperscissors/game.js"></script>
+  <!-- BUTTONS -->
+  <div class="buttons">
+    <button onclick="playGame('rock')">Rock</button>
+    <button onclick="playGame('paper')">Paper</button>
+    <button onclick="playGame('scissors')">Scissors</button>
+  </div>
 
+  <button class="reset" onclick="resetScore()">Reset Score</button>
+
+  <script src="rockpaperscissors/game.js"></script>
 </body>
 </html>
