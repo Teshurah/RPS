@@ -3,46 +3,73 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>RPS AI Battle</title>
+  <title>Rock Paper Scissors</title>
 
   <link rel="stylesheet" href="rockpaperscissors/styles.css"/>
 </head>
 
 <body>
 
-  <h1>⚔️ Rock Paper Scissors AI</h1>
+<!-- ================= INTRO SCREEN ================= -->
+<div id="intro-screen" class="screen active">
 
-  <!-- STATS -->
+  <div class="intro-images">
+    <img class="intro-img img1" src="rockpaperscissors/rock.png"/>
+    <img class="intro-img img2" src="rockpaperscissors/paper.png"/>
+    <img class="intro-img img3" src="rockpaperscissors/scissors.png"/>
+  </div>
+
+  <h1 class="title">Rock Paper Scissors</h1>
+
+  <button class="start-btn" onclick="showLevels()">Start</button>
+
+</div>
+
+<!-- ================= LEVEL SCREEN ================= -->
+<div id="level-screen" class="screen">
+
+  <h1>Select Difficulty</h1>
+
+  <button onclick="startGame('easy')">Easy</button>
+  <button onclick="startGame('medium')">Medium</button>
+  <button onclick="startGame('hard')">Hard</button>
+
+  <br><br>
+  <button onclick="goIntro()">Back</button>
+
+</div>
+
+<!-- ================= GAME SCREEN ================= -->
+<div id="game-screen" class="screen">
+
+  <button class="exit" onclick="goIntro()">Exit</button>
+
+  <h1>Battle Mode</h1>
+
   <div class="stats">
     <p id="streak">🔥 Current Streak: 0</p>
     <p id="best-streak">🏆 Best Streak: 0</p>
   </div>
 
-  <!-- BATTLE AREA -->
   <div class="battle">
 
-    <!-- YOU -->
     <div class="side">
       <h2>You</h2>
-      <img id="player-img" src="rockpaperscissors/rock.png" />
+      <img id="player-img" src="rockpaperscissors/rock.png"/>
     </div>
 
-    <!-- CENTER -->
     <div class="center">
-      <h2>VS</h2>
       <p id="result-text">Make your move!</p>
       <p id="score">Wins: 0 | Losses: 0 | Ties: 0</p>
     </div>
 
-    <!-- COMPUTER -->
     <div class="side">
       <h2>Computer</h2>
-      <img id="computer-img" src="rockpaperscissors/rock.png" />
+      <img id="computer-img" src="rockpaperscissors/rock.png"/>
     </div>
 
   </div>
 
-  <!-- BUTTONS -->
   <div class="buttons">
     <button onclick="playGame('rock')">
       <img src="rockpaperscissors/rock.png"/>
@@ -57,8 +84,8 @@
     </button>
   </div>
 
-  <button onclick="resetScore()">Reset Score</button>
+</div>
 
-  <script src="rockpaperscissors/game.js"></script>
+<script src="rockpaperscissors/game.js"></script>
 </body>
 </html>
