@@ -1,98 +1,50 @@
-let playerScore = localStorage.getItem("playerScore") || 0;
-let computerScore = localStorage.getItem("computerScore") || 0;
-let draws = localStorage.getItem("draws") || 0;
+let wins = 0;
+let losses = 0;
+let ties = 0;
 
-let lastPlayerMove = null;
+function playGame(playerChoice) {
+  const choices = ["rock", "paper", "scissors"];
+  const computerChoice = choices[Math.floor(Math.random() * choices.length)];
 
-updateScore();
+  let resultTitle = "";
+  let resultMessage = "";
 
-function computerMove() {
-  const difficulty = document.getElementById("difficulty").value;
-  const moves = ["rock", "paper", "scissors"];
-
-  if (difficulty === "easy") {
-    return moves[Math.floor(Math.random() * 3)];
-  }
-
-  if (difficulty === "medium") {
-    if (Math.random() < 0.5 && lastPlayerMove) {
-      if (lastPlayerMove === "rock") return "paper";
-      if (lastPlayerMove === "paper") return "scissors";
-      if (lastPlayerMove === "scissors") return "rock";
-    }
-    return moves[Math.floor(Math.random() * 3)];
-  }
-
-  if (lastPlayerMove === "rock") return "paper";
-  if (lastPlayerMove === "paper") return "scissors";
-  if (lastPlayerMove === "scissors") return "rock";
-
-  return moves[Math.floor(Math.random() * 3)];
-}
-
-function play(playerChoice) {
-  const compChoice = computerMove();
-  lastPlayerMove = playerChoice;
-
-  let resultText = "";
-  let resultClass = "";
-
-  if (playerChoice === compChoice) {
-    resultText = `Draw! Both chose ${playerChoice}`;
-    draws++;
-    resultClass = "draw";
-  } 
-  else if (
-    (playerChoice === "rock" && compChoice === "scissors") ||
-    (playerChoice === "paper" && compChoice === "rock") ||
-    (playerChoice === "scissors" && compChoice === "paper")
+  if (playerChoice === computerChoice) {
+    resultTitle = "It's a tie!";
+    resultMessage = "We both chose the same... weird.";
+    ties++;
+  } else if (
+    (playerChoice === "rock" && computerChoice === "scissors") ||
+    (playerChoice === "paper" && computerChoice === "rock") ||
+    (playerChoice === "scissors" && computerChoice === "paper")
   ) {
-    resultText = `You Win! ${playerChoice} beats ${compChoice}`;
-    playerScore++;
-    resultClass = "win";
-  } 
-  else {
-    resultText = `You Lose! ${compChoice} beats ${playerChoice}`;
-    computerScore++;
-    resultClass = "lose";
+    resultTitle = "You win!";
+    resultMessage = "Okay fine... that was a good move.";
+    wins++;
+  } else {
+    resultTitle = "Computer wins!";
+    resultMessage = "Too easy. I’m better at this 😎";
+    losses++;
   }
 
-  document.getElementById("result").innerText = resultText;
-  document.getElementById("result").className = "result " + resultClass;
+  document.getElementById("result-text").innerHTML =
+    `You chose <strong>${playerChoice}</strong> - Computer chose <strong>${computerChoice}</strong><br>
+     <strong>${resultTitle}</strong><br>
+     ${resultMessage}`;
 
-  addHistory(resultText);
-  saveData();
   updateScore();
 }
 
 function updateScore() {
-  document.getElementById("playerScore").innerText = playerScore;
-  document.getElementById("computerScore").innerText = computerScore;
-  document.getElementById("draws").innerText = draws;
+  document.getElementById("score").textContent =
+    `Wins: ${wins} | Losses: ${losses} | Ties: ${ties}`;
 }
 
-function saveData() {
-  localStorage.setItem("playerScore", playerScore);
-  localStorage.setItem("computerScore", computerScore);
-  localStorage.setItem("draws", draws);
-}
+function resetScore() {
+  wins = 0;
+  losses = 0;
+  ties = 0;
 
-function addHistory(text) {
-  const history = document.getElementById("history");
-  const div = document.createElement("div");
-  div.innerText = text;
-  history.prepend(div);
-}
-
-function resetGame() {
-  playerScore = 0;
-  computerScore = 0;
-  draws = 0;
-
-  localStorage.clear();
+  document.getElementById("result-text").textContent = "Make your move!";
   updateScore();
-
-  document.getElementById("history").innerHTML = "";
-  document.getElementById("result").innerText = "Game reset! Make your move!";
-  document.getElementById("result").className = "result";
 }
