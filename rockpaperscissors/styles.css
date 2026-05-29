@@ -3,21 +3,19 @@ body {
   background: #0f172a;
   color: white;
   text-align: center;
+  margin: 0;
 }
 
 h1 {
   margin-top: 20px;
 }
 
-/* STATS */
 .stats {
   display: flex;
   justify-content: center;
   gap: 40px;
-  margin: 10px;
 }
 
-/* BATTLE */
 .battle {
   display: flex;
   justify-content: center;
@@ -30,16 +28,10 @@ h1 {
   width: 120px;
   height: 120px;
   background: #1e293b;
-  padding: 15px;
+  padding: 10px;
   border-radius: 15px;
 }
 
-/* CENTER */
-.center {
-  width: 200px;
-}
-
-/* BUTTONS */
 .buttons {
   margin-top: 30px;
 }
