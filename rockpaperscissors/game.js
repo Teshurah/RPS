@@ -1,17 +1,22 @@
-let wins = 0;
-let losses = 0;
-let ties = 0;
-
 function playGame(playerChoice) {
   const choices = ["rock", "paper", "scissors"];
   const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+
+  const icons = {
+    rock: "✊",
+    paper: "✋",
+    scissors: "✌️"
+  };
+
+  document.getElementById("player-choice").textContent = icons[playerChoice];
+  document.getElementById("computer-choice").textContent = icons[computerChoice];
 
   let resultTitle = "";
   let resultMessage = "";
 
   if (playerChoice === computerChoice) {
     resultTitle = "It's a tie!";
-    resultMessage = "We both chose the same... interesting.";
+    resultMessage = "Evenly matched!";
     ties++;
   } 
   else if (
@@ -20,33 +25,17 @@ function playGame(playerChoice) {
     (playerChoice === "scissors" && computerChoice === "paper")
   ) {
     resultTitle = "You win!";
-    resultMessage = "Okay okay... that was a good move.";
+    resultMessage = "Nice move!";
     wins++;
   } 
   else {
     resultTitle = "Computer wins!";
-    resultMessage = "Too easy. I expected more from you 😎";
+    resultMessage = "Too easy 😎";
     losses++;
   }
 
   document.getElementById("result-text").innerHTML =
-    `You chose <strong>${playerChoice}</strong> - Computer chose <strong>${computerChoice}</strong><br>
-     <strong>${resultTitle}</strong><br>
-     ${resultMessage}`;
+    `<strong>${resultTitle}</strong><br>${resultMessage}`;
 
-  updateScore();
-}
-
-function updateScore() {
-  document.getElementById("score").textContent =
-    `Wins: ${wins} | Losses: ${losses} | Ties: ${ties}`;
-}
-
-function resetScore() {
-  wins = 0;
-  losses = 0;
-  ties = 0;
-
-  document.getElementById("result-text").textContent = "Make your move!";
   updateScore();
 }
