@@ -5,7 +5,7 @@ let ties = 0;
 let currentStreak = 0;
 let bestStreak = 0;
 
-// AI memory
+// AI memory (tracks what YOU pick)
 let memory = {
   rock: 0,
   paper: 0,
@@ -13,14 +13,24 @@ let memory = {
 };
 
 function getAIChoice() {
+  const moves = ["rock", "paper", "scissors"];
+
+  // 🔹 30% random = prevents AI getting stuck
+  if (Math.random() < 0.3) {
+    return moves[Math.floor(Math.random() * 3)];
+  }
+
+  // 🔹 find most used player move
   let mostUsed = "rock";
 
   if (memory.paper > memory.rock && memory.paper > memory.scissors) {
     mostUsed = "paper";
-  } else if (memory.scissors > memory.rock && memory.scissors > memory.paper) {
+  } 
+  else if (memory.scissors > memory.rock && memory.scissors > memory.paper) {
     mostUsed = "scissors";
   }
 
+  // 🔹 counter the player
   if (mostUsed === "rock") return "paper";
   if (mostUsed === "paper") return "scissors";
   return "rock";
@@ -28,18 +38,20 @@ function getAIChoice() {
 
 function playGame(playerChoice) {
 
+  // track player behaviour
   memory[playerChoice]++;
 
   const computerChoice = getAIChoice();
 
-  const img = {
+  const images = {
     rock: "rockpaperscissors/rock.png",
     paper: "rockpaperscissors/paper.png",
     scissors: "rockpaperscissors/scissors.png"
   };
 
-  document.getElementById("player-img").src = img[playerChoice];
-  document.getElementById("computer-img").src = img[computerChoice];
+  // update images
+  document.getElementById("player-img").src = images[playerChoice];
+  document.getElementById("computer-img").src = images[computerChoice];
 
   let result = "";
 
@@ -47,7 +59,7 @@ function playGame(playerChoice) {
     result = "Tie!";
     ties++;
     currentStreak = 0;
-  }
+  } 
   else if (
     (playerChoice === "rock" && computerChoice === "scissors") ||
     (playerChoice === "paper" && computerChoice === "rock") ||
@@ -60,14 +72,15 @@ function playGame(playerChoice) {
     if (currentStreak > bestStreak) {
       bestStreak = currentStreak;
     }
-  }
+  } 
   else {
     result = "Computer Wins!";
     losses++;
     currentStreak = 0;
   }
 
-  document.getElementById("result-text").innerHTML = result;
+  document.getElementById("result-text").innerHTML =
+    `<strong>${result}</strong>`;
 
   updateUI();
 }
@@ -88,6 +101,13 @@ function resetScore() {
   losses = 0;
   ties = 0;
   currentStreak = 0;
+  bestStreak = 0;
+
+  memory = {
+    rock: 0,
+    paper: 0,
+    scissors: 0
+  };
 
   document.getElementById("result-text").textContent = "Make your move!";
   updateUI();
