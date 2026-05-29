@@ -10,83 +10,138 @@ body {
 .game-box {
   max-width: 600px;
   margin: auto;
-  background: rgba(255,255,255,0.05);
-  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
   border-radius: 15px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
 }
 
 h1 {
   margin-bottom: 10px;
+  font-size: 28px;
 }
 
 label {
   display: block;
   margin-top: 10px;
+  font-size: 14px;
+  opacity: 0.8;
 }
 
 select {
   padding: 10px;
   border-radius: 8px;
   margin-top: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .buttons {
   display: flex;
   justify-content: center;
   gap: 15px;
-  margin: 20px 0;
+  margin: 25px 0;
+  flex-wrap: wrap;
 }
 
 button {
-  padding: 15px;
+  padding: 15px 18px;
   font-size: 16px;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.25s ease;
+  font-weight: bold;
 }
 
-button:hover {
-  transform: scale(1.1);
-}
-
+/* game buttons */
 .buttons button {
   background: #3498db;
   color: white;
 }
 
+.buttons button:hover {
+  transform: scale(1.1);
+  background: #2980b9;
+}
+
+/* reset button */
 .reset {
   background: crimson;
   color: white;
   margin-top: 10px;
 }
 
+.reset:hover {
+  transform: scale(1.05);
+  background: #c0392b;
+}
+
 .result {
   margin-top: 20px;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   min-height: 30px;
+  transition: all 0.3s ease;
+}
+
+/* result colors */
+.win {
+  color: #2ecc71;
+  transform: scale(1.05);
+}
+
+.lose {
+  color: #e74c3c;
+  transform: scale(1.05);
+}
+
+.draw {
+  color: #f1c40f;
+  transform: scale(1.05);
 }
 
 .score {
   display: flex;
   justify-content: space-around;
-  margin-top: 20px;
+  margin-top: 25px;
   font-size: 18px;
+  background: rgba(255,255,255,0.05);
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .history {
   margin-top: 20px;
   text-align: left;
-  max-height: 150px;
+  max-height: 180px;
   overflow-y: auto;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.08);
   padding: 10px;
   border-radius: 10px;
 }
 
-/* result colors */
-.win { color: #2ecc71; }
-.lose { color: #e74c3c; }
-.draw { color: #f1c40f; }
+/* history items */
+.history div {
+  padding: 5px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  font-size: 14px;
+}
+
+/* mobile responsiveness */
+@media (max-width: 600px) {
+  .buttons {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .score {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
