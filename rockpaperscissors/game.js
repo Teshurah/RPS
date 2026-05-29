@@ -5,7 +5,7 @@ let ties = 0;
 let currentStreak = 0;
 let bestStreak = 0;
 
-// AI memory (tracks what YOU pick)
+// Tracks player behavior
 let memory = {
   rock: 0,
   paper: 0,
@@ -15,30 +15,34 @@ let memory = {
 function getAIChoice() {
   const moves = ["rock", "paper", "scissors"];
 
-  // 🔹 30% random = prevents AI getting stuck
-  if (Math.random() < 0.3) {
+  // 🔹 Always allow randomness so AI never gets stuck
+  if (Math.random() < 0.35) {
     return moves[Math.floor(Math.random() * 3)];
   }
 
-  // 🔹 find most used player move
+  // 🔹 Weighted prediction (prevents locking into one move)
+  let scores = {
+    rock: memory.rock + Math.random(),
+    paper: memory.paper + Math.random(),
+    scissors: memory.scissors + Math.random()
+  };
+
   let mostUsed = "rock";
 
-  if (memory.paper > memory.rock && memory.paper > memory.scissors) {
+  if (scores.paper > scores.rock && scores.paper > scores.scissors) {
     mostUsed = "paper";
-  } 
-  else if (memory.scissors > memory.rock && memory.scissors > memory.paper) {
+  } else if (scores.scissors > scores.rock && scores.scissors > scores.paper) {
     mostUsed = "scissors";
   }
 
-  // 🔹 counter the player
+  // 🔹 Counter the predicted move
   if (mostUsed === "rock") return "paper";
   if (mostUsed === "paper") return "scissors";
   return "rock";
 }
 
 function playGame(playerChoice) {
-
-  // track player behaviour
+  // track player move
   memory[playerChoice]++;
 
   const computerChoice = getAIChoice();
@@ -49,14 +53,15 @@ function playGame(playerChoice) {
     scissors: "rockpaperscissors/scissors.png"
   };
 
-  // update images
+  // update images on screen
   document.getElementById("player-img").src = images[playerChoice];
   document.getElementById("computer-img").src = images[computerChoice];
 
   let result = "";
 
+  // GAME LOGIC
   if (playerChoice === computerChoice) {
-    result = "Tie!";
+    result = "It's a Tie!";
     ties++;
     currentStreak = 0;
   } 
@@ -79,6 +84,7 @@ function playGame(playerChoice) {
     currentStreak = 0;
   }
 
+  // show result
   document.getElementById("result-text").innerHTML =
     `<strong>${result}</strong>`;
 
