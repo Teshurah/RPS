@@ -13,7 +13,6 @@ let memory = {
 };
 
 function getAIChoice() {
-  // find player's most used move
   let mostUsed = "rock";
 
   if (memory.paper > memory.rock && memory.paper > memory.scissors) {
@@ -22,7 +21,6 @@ function getAIChoice() {
     mostUsed = "scissors";
   }
 
-  // AI counters player tendency
   if (mostUsed === "rock") return "paper";
   if (mostUsed === "paper") return "scissors";
   return "rock";
@@ -30,19 +28,18 @@ function getAIChoice() {
 
 function playGame(playerChoice) {
 
-  // track player behavior
   memory[playerChoice]++;
 
   const computerChoice = getAIChoice();
 
-  const images = {
+  const img = {
     rock: "rockpaperscissors/rock.png",
     paper: "rockpaperscissors/paper.png",
     scissors: "rockpaperscissors/scissors.png"
   };
 
-  document.getElementById("player-img").src = images[playerChoice];
-  document.getElementById("computer-img").src = images[computerChoice];
+  document.getElementById("player-img").src = img[playerChoice];
+  document.getElementById("computer-img").src = img[computerChoice];
 
   let result = "";
 
@@ -50,7 +47,7 @@ function playGame(playerChoice) {
     result = "Tie!";
     ties++;
     currentStreak = 0;
-  } 
+  }
   else if (
     (playerChoice === "rock" && computerChoice === "scissors") ||
     (playerChoice === "paper" && computerChoice === "rock") ||
@@ -63,7 +60,7 @@ function playGame(playerChoice) {
     if (currentStreak > bestStreak) {
       bestStreak = currentStreak;
     }
-  } 
+  }
   else {
     result = "Computer Wins!";
     losses++;
